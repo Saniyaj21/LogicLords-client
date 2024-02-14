@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green: #008894; // This is Theme color and prmary green for the desire website 
+    --hoverGreen: #007484; // This is used only on hover effects over the primary green only 
+    --lightGreen: #f3feff; // This is used for backgrounds 
+    --blue: #0043A7; // This is used only on Links on the websites and the other necessary parts only 
+    --hoverBlue: #0043A7; // This is used only on hover effects over the primary blue color only  
+    --errorPrimary: #FF0101; // This is Primary red color for the desire website and used only for the error parts and some other necessary parts only if needed 
+    --errorSecondary: #FF3D00; // This is secondary red which is not used in the figma design but if in future is required then this is selected 
+    --warningPrimary: #FFAC07; // This is Primary yellow color it is used on in warning sections 
+    --warningSecondary: #FFD149; // This is Secondary yellow which is not used in the figma design but if in future is required then this is selected 
+    --white: #FFFFFF; // Use the white varible insted of the direct white color 
+    --gray: #D9D9D9; // Theme gray used in the full website 
+    --lightGray: #EBEBEB;
+    --darkGray: #7F7F7F;
+    --black: #000000; // Use the black varible insted of the direct black color 
+}
