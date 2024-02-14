@@ -1,3 +1,31 @@
 #header {
 	background-color: var(--green);
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 8%;
+}
+#header-logo {
+	> img {
+		height: 60px;
+		width: auto;
+	}
+}
+#header #menu {
+	> ul {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 15px;
+		> li {
+			list-style: none;
+		}
+	}
+}
+#header #hamburg {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
