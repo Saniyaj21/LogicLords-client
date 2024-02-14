@@ -1,14 +1,7 @@
-import React from "react";
-import TextLogo from "../../components/TextLogo";
-import Example from "./blocks/Example";
+import "./home.scss";
 
 const Home = () => {
-    return (
-        <div>
-            <TextLogo />
-            <Example />
-        </div>
-    );
+	return <div id="home">Home page</div>;
 };
 
 export default Home;
