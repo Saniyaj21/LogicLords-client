@@ -1,29 +1,22 @@
 import "./header.scss";
-import logo from "../../../media/Logo.png";
-// import namedLogo from "../../../media/TextLogo.png";
+import Logo from "../../../components/Logo";
 
 const Header = () => {
     return (
-        <div id="header">
-            <div className="logo">
-                <img src={logo} alt="logiclords.dev" />
-                {/* <img src={namedLogo} alt="logiclords.dev" /> */}
+        <header id="header">
+            <div id="header-logo">
+                <Logo />
             </div>
-            <div className="links">
+            <div id="menu">
                 <ul>
                     <li>Home</li>
-                    <li>About</li>
                     <li>Courses</li>
-                    <li>Notes</li>
-                    <li>Leaderboard</li>
-                </ul>
-                <ul className="authLinks">
-                    <li>Login</li>
-                    <li>Register</li>
-                    <li>Logout</li>
+                    <li>Projects</li>
+                    <li>Leader Board</li>
                 </ul>
             </div>
-        </div>
+            <div id="hamburg">HAM</div>
+        </header>
     );
 };
 
