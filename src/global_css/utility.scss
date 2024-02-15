@@ -1,0 +1,46 @@
+.btn {
+	border: none;
+	background: none;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-family: "montserrat";
+	cursor: pointer;
+	margin: 10px;
+	transition: 0.4s;
+	position: relative;
+	overflow: hidden;
+	background: var(--white);
+	border: 1px solid var(--green);
+	border-radius: 5px;
+	color: var(--white);
+}
+
+.btn:hover {
+	color: var(--green);
+}
+.btn::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background: var(--green);
+
+	z-index: -1;
+	transition: 0.8s;
+}
+.btn {
+	z-index: 1;
+}
+
+.btn::before {
+	bottom: 0;
+	border-radius: 50% 50% 0 0;
+}
+.btn::before {
+	height: 180%;
+}
+
+.btn:hover::before {
+	height: 0%;
+}
