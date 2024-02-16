@@ -1,0 +1,128 @@
+.leaderBoard_container {
+  display: flex;
+  font-family: nunito;
+}
+
+.leaderBoard_sideNav {
+  display: flex;
+  flex-direction: column;
+  width: 11rem;
+  margin-left: 5rem;
+  margin-top: 13rem;
+}
+
+.sideNav_title {
+  padding: 10px;
+  color: #008894;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.leaderBoard_centerDiv {
+  margin-left: 5rem;
+  margin-top: 2rem;
+  width: max-content;
+  height: 100vh;
+}
+
+.leaderBoard_sliderText {
+  display: flex;
+  font-weight: bold;
+}
+
+.sliderText_title {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+:active {
+  cursor: pointer;
+}
+
+
+// add slider css
+.slider {
+  width: 100%;
+  height: 5px;
+  display: block;
+  background: #008894;
+  margin-top: 4px;
+  border-radius: 5px;
+}
+
+.slider .bar {
+  width: 15%;
+  height: 5px;
+  background: #FFAC07;
+  border-radius: 5px;
+}
+
+// Animation
+.slider .bar {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+// .leaderBoard_centerDiv:checked ~ .slider .bar{ margin-left: 0; }
+// .leaderBoard_centerDiv:checked ~ .slider .bar{ margin-left: 25%; }
+// .leaderBoard_centerDiv:checked ~ .slider .bar{ margin-left: 50%; }
+// .leaderBoard_centerDiv:checked ~ .slider .bar{ margin-left: 75%; }
+
+.leaderBoard_mainContent {
+  margin-left: 5rem;
+}
+
+.leaderBoard_Text {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.leaderBoard_mainDiv {
+  margin-top: 1rem;
+  border: 2px solid #008894;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.User_SN {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.User_Img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-left: 2rem;
+}
+
+.user_Name {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.user_Institute {
+  font-size: 15px;
+  color: #008894;
+}
+
+.LL_logo {
+  border-radius: 50%;
+  height: 30px;
+  width: 50px;
+  background-color: #008894;
+  margin-top: 8px;
+  margin-left: 18rem;
+}
+
+.user_coin {
+  color: #FFAC07;
+  font-weight: bold;
+  margin: 1rem;
+  margin-top: 10px;
+  margin-left: 0.5rem;
+}
