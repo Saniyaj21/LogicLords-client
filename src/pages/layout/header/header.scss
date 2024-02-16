@@ -1,3 +1,130 @@
 #header {
-	background-color: var(--green);
+	background-color: var(--white);
+	backdrop-filter: blur(12px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 2rem;
+	position: sticky;
+	top: 0;
+	height: 3.5rem;
+	border-bottom: 1px solid var(--lightGray);
+
+	.logoContainer {
+		width: 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		color: var(--green);
+		gap: 0.2rem;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		h1 {
+			font-size: 1.1rem;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			line-height: 0.8rem;
+
+			span {
+				font-size: 0.89rem;
+				color: var(--darkGray);
+			}
+		}
+
+
+	}
+
+	.linksContainer {
+		list-style: none;
+		display: flex;
+		gap: 1rem;
+
+		>a {
+			color: var(--green);
+			text-decoration: none;
+			cursor: pointer;
+			padding: 0.5rem 0.5rem;
+			position: relative;
+			transition: all 1s ease-in-out;
+
+			&.currentLink {
+				position: relative;
+				font-weight: 700;
+
+				// border: 1px solid var(--lightGray);
+				// border-radius: 0.5rem;
+				// background-color: var(--green);
+				// color: var(--white);
+				&::before {
+					content: '';
+					position: absolute;
+					height: 0.18rem;
+					width: 100%;
+					left: 0;
+					bottom: 0.2rem;
+					border-radius: 0.5rem;
+					background-color: var(--green);
+					transition: all 0.3s ease-in-out;
+				}
+			}
+
+			&::before {
+				position: absolute;
+				content: '';
+				height: 0.18rem;
+				width: 0%;
+				left: 0;
+				bottom: 0.2rem;
+				border-radius: 0.5rem;
+				background-color: var(--green);
+				transition: all 0.3s ease-in-out;
+			}
+
+			&:hover::before {
+				width: 100%;
+			}
+
+			li {
+				display: flex;
+				font-size: 1.1rem;
+				align-items: center;
+				justify-content: center;
+				gap: 0.2rem;
+
+				.icons {
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+		.authContainer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: 0.5rem;
+			gap: 0.4rem;
+
+			>a {
+				cursor: pointer;
+				color: var(--green);
+				background-color: var(--lightGreen);
+				text-decoration: none;
+				padding: 0.4rem 1.1rem;
+				transition: all 0.3s ease-in-out;
+				border: 1px solid var(--green);
+				border-radius: 0.5rem;
+				font-weight: 700;
+
+				&:hover {
+					background-color: var(--green);
+					color: var(--white);
+				}
+			}
+		}
+	}
 }
