@@ -1,3 +1,8 @@
+// List of utility classes
+
+// .btn			 -> Button Primary
+// .btn-sec      -> Button Secondary
+
 .btn {
 	border: none;
 	background: none;
@@ -6,7 +11,7 @@
 	font-family: "montserrat";
 	cursor: pointer;
 	margin: 10px;
-	transition: 0.4s;
+	transition: 0.3s;
 	position: relative;
 	overflow: hidden;
 	background: var(--white);
@@ -17,6 +22,7 @@
 
 .btn:hover {
 	color: var(--green);
+	border-radius: 50px;
 }
 .btn::before {
 	content: "";
@@ -27,7 +33,7 @@
 	background: var(--green);
 
 	z-index: -1;
-	transition: 0.8s;
+	transition: 0.4s;
 }
 .btn {
 	z-index: 1;
@@ -42,5 +48,54 @@
 }
 
 .btn:hover::before {
+	height: 0%;
+}
+
+// button secondari
+.btn-sec {
+	border: none;
+	background: none;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-family: "montserrat";
+	cursor: pointer;
+	margin: 10px;
+	transition: 0.3s;
+	position: relative;
+	overflow: hidden;
+	background: var(--white);
+	border: 1px solid var(--blue);
+	border-radius: 5px;
+	color: var(--white);
+}
+
+.btn-sec:hover {
+	color: var(--blue);
+	border-radius: 50px;
+}
+.btn-sec::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background: var(--blue);
+
+	z-index: -1;
+	transition: 0.4s;
+}
+.btn-sec {
+	z-index: 1;
+}
+
+.btn-sec::before {
+	bottom: 0;
+	border-radius: 50% 50% 0 0;
+}
+.btn-sec::before {
+	height: 180%;
+}
+
+.btn-sec:hover::before {
 	height: 0%;
 }
