@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaHome, FaProjectDiagram, FaDiscourse } from "react-icons/fa";
 import { MdLeaderboard } from "react-icons/md";
 import Logo from "../../../media/Logo1.png";
+import profile from "../../../media/default_profile.png";
 import "./header.scss";
 
 const Header = () => {
@@ -41,6 +42,12 @@ const Header = () => {
                     <Link to="/auth/login" className="btn">
                         Login
                     </Link>
+
+                    <div className="profileContainer">
+                        <Link to="/profile/:uid">
+                            <img src={profile} alt="profile" />
+                        </Link>
+                    </div>
                     {/* <Link to="/auth/register">Register</Link> */}
                 </div>
             </ul>
