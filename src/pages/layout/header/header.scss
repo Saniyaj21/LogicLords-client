@@ -111,19 +111,22 @@
 
 			>a {
 				cursor: pointer;
-				color: var(--green);
+				// color: var(--green);
 				background-color: var(--lightGreen);
 				text-decoration: none;
 				padding: 0.4rem 1.1rem;
 				transition: all 0.3s ease-in-out;
 				border: 1px solid var(--green);
 				border-radius: 0.5rem;
-				font-weight: 700;
+				font-weight: 600;
+				font-family: 'Nunito', sans-serif;
+				font-size: 1.1rem;
+				margin: 0;
 
-				&:hover {
-					background-color: var(--green);
-					color: var(--white);
-				}
+				// &:hover {
+				// 	background-color: var(--green);
+				// 	color: var(--white);
+				// }
 			}
 		}
 	}

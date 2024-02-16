@@ -38,10 +38,10 @@ const Header = () => {
                 </Link>
 
                 <div className="authContainer">
-                    <Link to="/auth/login" className="loginBtn">
+                    <Link to="/auth/login" className="btn">
                         Login
                     </Link>
-                    <Link to="/auth/register">Register</Link>
+                    {/* <Link to="/auth/register">Register</Link> */}
                 </div>
             </ul>
         </header>
