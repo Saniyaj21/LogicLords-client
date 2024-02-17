@@ -17,6 +17,8 @@
 		justify-content: start;
 		color: var(--green);
 		gap: 0.2rem;
+		text-decoration: none;
+		user-select: none;
 
 		img {
 			width: 100%;

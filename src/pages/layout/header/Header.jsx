@@ -9,30 +9,30 @@ import "./header.scss";
 const Header = () => {
     return (
         <header id="header">
-            <div className="logoContainer">
+            <Link className="logoContainer">
                 <img src={Logo} alt="logiclords.dev" />
                 <h1 className="nunito-8">
                     Logiclords<span className="nunito-4">.dev</span>
                 </h1>
-            </div>
+            </Link>
             <ul className="linksContainer">
                 <Link to="/" className="currentLink">
                     <li>
                         <FaHome className="icons" /> Home
                     </li>
                 </Link>
-                <Link to="/">
+                <Link to="/courses">
                     <li>
                         <FaDiscourse className="icons" /> Courses
                     </li>
                 </Link>
-                <Link to="/">
+                <Link to="/projects">
                     <li>
                         <FaProjectDiagram className="icons" />
                         Projects
                     </li>
                 </Link>
-                <Link to="/">
+                <Link to="/leader-board">
                     <li>
                         <MdLeaderboard className="icons" /> Leader Board
                     </li>

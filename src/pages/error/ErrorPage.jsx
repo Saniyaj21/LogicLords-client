@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
@@ -30,7 +31,8 @@ const ErrorPage = () => {
             >
                 Oops! It looks like you're lost...
             </p>
-            <button
+            <Link
+                to="/"
                 style={{
                     backgroundColor: "#fff",
                     color: "#008894",
@@ -43,7 +45,7 @@ const ErrorPage = () => {
                 }}
             >
                 Go Home
-            </button>
+            </Link>
         </div>
     );
 };
