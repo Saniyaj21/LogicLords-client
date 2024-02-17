@@ -30,6 +30,28 @@
 }
 
 
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track styles */
+::-webkit-scrollbar-track {
+    background: #dceced;
+}
+
+/* Handle styles */
+::-webkit-scrollbar-thumb {
+    background: #008894;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #007484;
+}
+
+
 // @media (prefers-color-scheme: dark) {
 //     :root {
 //         --green: #008894; // This is Theme color and prmary green for the desire website 
