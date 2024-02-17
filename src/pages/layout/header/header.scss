@@ -17,6 +17,8 @@
 		justify-content: start;
 		color: var(--green);
 		gap: 0.2rem;
+		text-decoration: none;
+		user-select: none;
 
 		img {
 			width: 100%;
@@ -42,7 +44,7 @@
 		display: flex;
 		gap: 1rem;
 
-		> a {
+		>a {
 			color: var(--green);
 			text-decoration: none;
 			cursor: pointer;
@@ -101,11 +103,32 @@
 			align-items: center;
 			justify-content: center;
 			margin-left: 0.5rem;
-			> a {
+			gap: 1rem;
+
+			>a {
 				margin: 0;
 				padding: 0;
-				> button {
+
+				>button {
 					margin: 0;
+				}
+			}
+
+			.profileContainer {
+				height: 2.8rem;
+				width: auto;
+				aspect-ratio: 1/1;
+				overflow: hidden;
+				object-fit: contain;
+				border: 2px solid var(--green);
+				border-radius: 3rem;
+				cursor: pointer;
+
+				img {
+					height: 100%;
+					width: auto;
+					aspect-ratio: 1/1;
+					object-fit: cover;
 				}
 			}
 		}

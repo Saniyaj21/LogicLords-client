@@ -6,6 +6,11 @@
     font-family: 'Nunito', sans-serif;
 }
 
+*::selection {
+    color: var(--lightGreen);
+    background-color: var(--green);
+}
+
 
 :root {
     --green: #008894; // This is Theme color and prmary green for the desire website 
