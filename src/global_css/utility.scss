@@ -11,7 +11,7 @@
 	background: none;
 	padding: 10px 20px;
 	font-size: 20px;
-	font-family: "montserrat";
+	font-family: 'Nunito', sans-serif;
 	cursor: pointer;
 	transition: 0.3s;
 	position: relative;
@@ -26,6 +26,7 @@
 	color: var(--green);
 	border-radius: 50px;
 }
+
 .btn::before {
 	content: "";
 	position: absolute;
@@ -37,6 +38,7 @@
 	z-index: -1;
 	transition: 0.4s;
 }
+
 .btn {
 	z-index: 1;
 }
@@ -45,6 +47,7 @@
 	bottom: 0;
 	border-radius: 50% 50% 0 0;
 }
+
 .btn::before {
 	height: 180%;
 }
@@ -75,6 +78,7 @@
 	color: var(--blue);
 	border-radius: 50px;
 }
+
 .btn-sec::before {
 	content: "";
 	position: absolute;
@@ -86,6 +90,7 @@
 	z-index: -1;
 	transition: 0.4s;
 }
+
 .btn-sec {
 	z-index: 1;
 }
@@ -94,6 +99,7 @@
 	bottom: 0;
 	border-radius: 50% 50% 0 0;
 }
+
 .btn-sec::before {
 	height: 180%;
 }
