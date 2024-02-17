@@ -2,7 +2,7 @@ import React from "react";
 import "./courses.scss";
 
 const Courses = () => {
-    return <div>Courses</div>;
+    return <h1>Courses Component </h1>;
 };
 
 export default Courses;
