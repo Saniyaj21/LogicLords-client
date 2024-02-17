@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { IoMenu } from "react-icons/io5";
 import Logo from "../../../media/logo1.png";
 import profile from "../../../media/default_profile.png";
 import "./header.scss";
 
 const Header = () => {
+    const [hambergerOn, setHambergerOn] = useState(true);
+
     return (
         <header id="header">
             <Link className="logoContainer">
@@ -13,7 +16,21 @@ const Header = () => {
                     Logiclords<span className="nunito-4">.dev</span>
                 </h1>
             </Link>
-            <ul className="linksContainer">
+
+            <ul
+                // className="linksContainer"
+                className={
+                    hambergerOn
+                        ? "linksContainer"
+                        : "linksContainer hambergerOn"
+                }
+            >
+                <div className="profileContainerMobile">
+                    <Link to="/profile/:uid">
+                        <img src={profile} alt="profile" />
+                    </Link>
+                </div>
+
                 <Link to="/" className="currentLink">
                     <li>Home</li>
                 </Link>
@@ -40,6 +57,12 @@ const Header = () => {
                     {/* <Link to="/auth/register">Register</Link> */}
                 </div>
             </ul>
+            <div
+                className="hamberger"
+                onClick={() => setHambergerOn(!hambergerOn)}
+            >
+                <IoMenu className="icon" />
+            </div>
         </header>
     );
 };
