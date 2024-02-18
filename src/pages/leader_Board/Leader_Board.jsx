@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./Leader_Board.scss";
 import GlobalRank from "./leader_Board_Layout/GlobalRank";
 import InstituteRank from "./leader_Board_Layout/InstituteRank";
-import { Link } from "react-router-dom";
+import LeaderBoard from '../../media/fa6-solid_ranking-star.svg';
+import WeeklyWin from '../../media/game-icons_podium-winner.png';
+import Home from '../../media/flowbite_home-solid.png';
 
 
 export default function Leader_Board() {
@@ -11,9 +13,9 @@ export default function Leader_Board() {
 
   const [activeSlider, setActiveSlider] = useState('global');
 
-  const handleDivClick = (divNumber) => {
-    setActiveDiv(divNumber);
-  };
+  // const handleDivClick = (divNumber) => {
+  //   setActiveDiv(divNumber);
+  // };
 
   return (
     <main>
@@ -28,7 +30,8 @@ export default function Leader_Board() {
             style={{ color: activeDiv === 'leader_board' ? "#FFAC07" : "#008894" }}
             role="button"
             tabIndex="0"
-          >
+          > 
+            <img src={LeaderBoard} alt="Leader_Board" className="navIcons" />
             Leader Board
             <hr className="title_hr"/>
           </div>
@@ -41,6 +44,7 @@ export default function Leader_Board() {
             role="button"
             tabIndex="0"
           >
+            <img src={WeeklyWin} alt="Weekly_Winners" className="navIcons"/>
             Weekly Winners <hr className="title_hr" />
           </div>
 
@@ -52,6 +56,7 @@ export default function Leader_Board() {
             role="button"
             tabIndex="0"
           >
+            <img src={Home} alt="Home" className="navIcons"/>
             Home <hr className="title_hr" />
           </div>
         </div>
