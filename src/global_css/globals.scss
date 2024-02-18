@@ -6,6 +6,11 @@
     font-family: 'Nunito', sans-serif;
 }
 
+*::selection {
+    color: var(--lightGreen);
+    background-color: var(--green);
+}
+
 
 :root {
     --green: #008894; // This is Theme color and prmary green for the desire website 
@@ -22,6 +27,28 @@
     --lightGray: #EBEBEB;
     --darkGray: #7F7F7F;
     --black: #131313; // Use the black varible insted of the direct black color 
+}
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track styles */
+::-webkit-scrollbar-track {
+    background: #dceced;
+}
+
+/* Handle styles */
+::-webkit-scrollbar-thumb {
+    background: #008894;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #007484;
 }
 
 
