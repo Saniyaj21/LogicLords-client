@@ -5,6 +5,9 @@ import Courses from "./pages/courses/Courses";
 import Projects from "./pages/projects/Projects";
 import Footer from "./pages/layout/footer/Footer";
 import ErrorPage from "./pages/error/ErrorPage";
+import Leader_Board from "./pages/leader_Board/Leader_Board";
+import GlobalRank from "./pages/leader_Board/leader_Board_Layout/GlobalRank";
+import InstituteRank from "./pages/leader_Board/leader_Board_Layout/InstituteRank";
 
 function App() {
     return (
@@ -14,7 +17,7 @@ function App() {
                 <Route path="/" element={<Home />} exact />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/projects" element={<Projects />} />
-                <Route path="/leader-board" element={<Home />} />
+                <Route path="/leader-board" element={<Leader_Board />} />
                 <Route path="/*" element={<ErrorPage />} />
             </Routes>
             <Footer />
