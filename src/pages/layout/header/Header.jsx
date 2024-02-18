@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaProjectDiagram, FaDiscourse } from "react-icons/fa";
 import { MdLeaderboard } from "react-icons/md";
-import Logo from "../../../media/Logo1.png";
+import Logo from "../../../media/logo1.png";
 import "./header.scss";
 
 const Header = () => {
