@@ -10,7 +10,7 @@ const Header = () => {
 
     return (
         <header id="header">
-            <Link className="logoContainer">
+            <Link className="logoContainer" to={'/'}>
                 <img src={Logo} alt="logiclords.dev" />
                 <h1 className="nunito-8">
                     Logiclords<span className="nunito-4">.dev</span>
@@ -40,7 +40,7 @@ const Header = () => {
                 <Link to="/projects">
                     <li>Projects</li>
                 </Link>
-                <Link to="/leader-board">
+                <Link to="/leaderboard">
                     <li> Leader Board</li>
                 </Link>
 
