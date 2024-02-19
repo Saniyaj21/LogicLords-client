@@ -1,0 +1,11 @@
+#action_otp{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding:0 30px;
+    justify-content: space-between;
+    >button{
+        width: 130px;
+        
+    }
+}
