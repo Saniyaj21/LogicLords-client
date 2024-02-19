@@ -22,7 +22,6 @@
 	padding: 10px 0px;
 	padding-left: 2rem;
 	width: 100%;
-	// background-color: green;
 	.left-align-conatiner {
 		// for efficient view in small devices
 		width: 100%;
@@ -32,7 +31,6 @@
 
 		.head-option-container {
 			display: flex;
-			// border-bottom: 3px solid var(--green);
 			gap: 10px;
 			> div {
 				padding: 8px 12px;
@@ -66,25 +64,55 @@
 	.sidebar {
 		font-size: 15px;
 		padding: 100px 2rem;
-		> svg {
-			display: none;
-		}
+		padding-right: 0px;
+		
 	}
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 450px) {
 	.board-container {
 		flex-direction: column;
 	}
-    .sidebar {
+	.sidebar {
 		width: 100%;
-        flex-direction: row;
-        padding: 0px 2rem;
-        height: 25px;
-        margin: 20px 0px;
-        justify-content: center;
+		flex-direction: row;
+		padding: 0px 1rem;
+		height: 35px;
+		margin: 20px 0px;
+		justify-content: center;
+		>div{
+			font-size: 14px;
+			>svg{
+				font-size: 14px;
+			}
+		}
+		
 	}
-    .rank-container {
-        display: none;
-    }
+
+	.rank-container {
+		padding-left: 0;
+		.left-align-conatiner {
+			padding: 0;
+
+			.head-option-container {
+				display: flex;
+				gap: 10px;
+				justify-content: center;
+				> div {
+					font-size: 14px;
+					align-items: center;
+					
+				}
+			}
+
+			// rank section
+			.rank-card-container {
+				padding: 5px 5px;
+				> p {
+					font-size: 12px;
+					text-align: center;
+				}
+			}
+		}
+	}
 }

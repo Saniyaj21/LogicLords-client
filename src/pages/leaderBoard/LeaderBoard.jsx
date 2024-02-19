@@ -11,7 +11,7 @@ const LeaderBoard = () => {
 			name: "Saniyaj Mallik",
 			institute: "Haldia Institute of Technology",
 			points: 1000,
-      rank:150
+			rank: 150,
 		},
 		{
 			avatar:
@@ -19,7 +19,7 @@ const LeaderBoard = () => {
 			name: "Sombhu Das",
 			institute: "Haldia Institute of Technology",
 			points: 10,
-      rank:10
+			rank: 10,
 		},
 		{
 			avatar:
@@ -27,7 +27,7 @@ const LeaderBoard = () => {
 			name: "SabseBaraNamHa MeraSamjha",
 			institute: "Haldia Institute of Technology or bhi hai",
 			points: 10000,
-      rank:300
+			rank: 300,
 		},
 	];
 
@@ -43,9 +43,9 @@ const LeaderBoard = () => {
 
 						<div className='rank-card-container'>
 							<p>Participate in weekly challanges to push your rank up.</p>
-              <br />
+							<br />
 							{TempArray.map((item, index) => {
-								return < RankCard item={item} index={index} />;
+								return <RankCard item={item} index={index} />;
 							})}
 						</div>
 					</div>
