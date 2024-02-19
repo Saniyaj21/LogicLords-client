@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Courses from "./pages/courses/Courses";
 import Projects from "./pages/projects/Projects";
 import Footer from "./pages/layout/footer/Footer";
+
 import ErrorPage from "./pages/error/ErrorPage";
 import Leader_Board from "./pages/leader_Board/Leader_Board";
 import GlobalRank from "./pages/leader_Board/leader_Board_Layout/GlobalRank";
@@ -23,6 +24,7 @@ function App() {
             <Footer />
         </Router>
     );
+
 }
 
 export default App;
