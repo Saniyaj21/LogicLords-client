@@ -1,0 +1,90 @@
+#leader-board {
+	min-height: 100dvh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.board-container {
+	width: 100%;
+	max-width: 1500px;
+	display: flex;
+}
+.sidebar {
+	width: 30%;
+	height: 100%;
+	padding: 100px 2rem;
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+}
+.rank-container {
+	padding: 10px 0px;
+	padding-left: 2rem;
+	width: 100%;
+	// background-color: green;
+	.left-align-conatiner {
+		// for efficient view in small devices
+		width: 100%;
+		max-width: 768px;
+		height: 100%;
+		padding-right: 50px;
+
+		.head-option-container {
+			display: flex;
+			// border-bottom: 3px solid var(--green);
+			gap: 10px;
+			> div {
+				padding: 8px 12px;
+				border-radius: 50px;
+				font-size: 20px;
+				display: flex;
+				gap: 8px;
+				align-items: center;
+				color: var(--green);
+				cursor: pointer;
+				transition: color 200ms;
+				&:hover {
+					color: var(--warningPrimary);
+				}
+			}
+
+			.active-rank-row {
+				color: var(--warningPrimary);
+				border: 2px solid var(--green);
+			}
+		}
+
+		// rank section
+		.rank-card-container {
+			padding: 10px 15px;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.sidebar {
+		font-size: 15px;
+		padding: 100px 2rem;
+		> svg {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.board-container {
+		flex-direction: column;
+	}
+    .sidebar {
+		width: 100%;
+        flex-direction: row;
+        padding: 0px 2rem;
+        height: 25px;
+        margin: 20px 0px;
+        justify-content: center;
+	}
+    .rank-container {
+        display: none;
+    }
+}

@@ -17,7 +17,7 @@ export default function Leader_Board() {
   //   setActiveDiv(divNumber);
   // };
 
-  return (
+  return ( 
     <main>
       <div className="leaderBoard_container">
         {/* side nav div */}
