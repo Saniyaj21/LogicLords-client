@@ -29,15 +29,15 @@
 	.sidebar-row {
 		font-size: 15px;
 		> svg {
-			display: none;
+			display: block;
 		}
 	}
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 450px) {
     .sidebar-row {
 		font-size: 15px;
 		> svg {
-			display: none;
+			display: block;
 		}
 	}
 	.home-row{
