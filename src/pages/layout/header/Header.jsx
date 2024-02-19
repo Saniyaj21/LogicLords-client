@@ -1,23 +1,70 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { IoMenu } from "react-icons/io5";
+import Logo from "../../../media/logo1.png";
+import profile from "../../../media/default_profile.png";
 import "./header.scss";
-import Logo from "../../../components/Logo";
 
 const Header = () => {
-	return (
-		<header id='header'>
-			<div id='header-logo'>
-				<Logo />
-			</div>
-			<div id='menu'>
-				<ul>
-					<li>Home</li>
-					<li>Courses</li>
-					<li>Projects</li>
-					<li>Leader Board</li>
-				</ul>
-			</div>
-			<div id="hamburg">HAM</div>
-		</header>
-	);
+    const [hambergerOn, setHambergerOn] = useState(true);
+
+    return (
+        <header id="header">
+            <Link className="logoContainer">
+                <img src={Logo} alt="logiclords.dev" />
+                <h1 className="nunito-8">
+                    Logiclords<span className="nunito-4">.dev</span>
+                </h1>
+            </Link>
+
+            <ul
+                // className="linksContainer"
+                className={
+                    hambergerOn
+                        ? "linksContainer"
+                        : "linksContainer hambergerOn"
+                }
+            >
+                <div className="profileContainerMobile">
+                    <Link to="/profile/:uid">
+                        <img src={profile} alt="profile" />
+                    </Link>
+                </div>
+
+                <Link to="/" className="currentLink">
+                    <li>Home</li>
+                </Link>
+                <Link to="/courses">
+                    <li>Courses</li>
+                </Link>
+                <Link to="/projects">
+                    <li>Projects</li>
+                </Link>
+                <Link to="/leader-board">
+                    <li> Leader Board</li>
+                </Link>
+
+                <div className="authContainer">
+                    <Link to="/auth/login">
+                        <button className="btn">Join Us</button>
+                    </Link>
+
+                    <div className="profileContainer">
+                        <Link to="/profile/:uid">
+                            <img src={profile} alt="profile" />
+                        </Link>
+                    </div>
+                    {/* <Link to="/auth/register">Register</Link> */}
+                </div>
+            </ul>
+            <div
+                className="hamberger"
+                onClick={() => setHambergerOn(!hambergerOn)}
+            >
+                <IoMenu className="icon" />
+            </div>
+        </header>
+    );
 };
 
 export default Header;

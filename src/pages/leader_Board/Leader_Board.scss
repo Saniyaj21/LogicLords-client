@@ -1,0 +1,117 @@
+.leaderBoard_container {
+  display: flex;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    max-width: 100vw;
+  }
+}
+
+.leaderBoard_sideNav {
+  display: flex;
+  flex-direction: column;
+  width: 11rem;
+  margin-left: 5rem;
+  margin-top: 13rem;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.sideNav_title{
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+
+  & .navIcons{
+    height: 1rem;
+    margin-right: 2px;
+  }
+
+  @media screen and (max-width: 450px) {
+   &:last-child{
+    display: none;
+   }
+  }
+}
+
+.leaderBoard_centerDiv {
+  margin-left: 5rem;
+  margin-top: 2rem;
+  width: 50%;
+  height: 100vh;
+
+  @media screen and (max-width: 450px) {
+    margin-left: 0.5rem;
+    width: 100%;
+  }
+}
+
+.leaderBoard_sliderText {
+  display: flex;
+  font-weight: bold;
+}
+
+.sliderText_title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+  color: #008894;
+  cursor: pointer;
+  width: 8.75rem;
+
+  &.text-yellow{
+    color: var(--warningPrimary);
+  }
+  @media screen and (max-width: 450px) {
+    width: 50%;
+  }
+}
+
+/*Bar Style*/
+
+.slider{
+  width: 100%;
+  height: 5px;
+  display: block;
+  background: var(--green);
+  margin-top: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+.slider .bar{
+  width: 8.75rem;
+  height: 100%;
+  background:var( --warningPrimary);
+  border-radius: 5px;
+  position: absolute;
+  left: 8.75rem;
+
+  &.active{
+    left: 0;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 50%;
+    left: 50%;
+  }
+}
+
+.leaderBoard_mainContent {
+  margin-inline: 2rem;
+
+  @media screen and (max-width: 450px) {
+    margin-left: 0.5rem;
+  }
+}
+
+.leaderBoard_Text {
+  margin-top: 10px;
+  font-weight: 500;
+}
