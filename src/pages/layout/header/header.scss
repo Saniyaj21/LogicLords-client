@@ -57,8 +57,9 @@
 			align-items: flex-start;
 			position: absolute;
 			top: 3.5rem;
-			right: -17rem;
-			width: 17rem;
+			// right: -100vw;
+			width: 100%;
+			transform: translateX(-101vw);
 			height: 100vh;
 			background-color: var(--white);
 			border-left: 1px solid var(--lightGray);
@@ -66,9 +67,15 @@
 			padding-top: 2rem;
 			padding-inline: 1.5rem;
 			transition: all 0.3s ease-in-out;
+			// display: none;
+			// opacity: 0;
 
 			&.hambergerOn {
 				right: 0rem;
+				// display: flex;
+				// opacity: 1;
+				transition: all 0.3s ease-in-out;
+				transform: translateX(0);
 			}
 		}
 
