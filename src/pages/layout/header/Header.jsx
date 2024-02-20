@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
+import { FaXmark } from "react-icons/fa6";
 import Logo from "../../../media/logo1.png";
 import profile from "../../../media/default_profile.png";
 import "./header.scss";
@@ -10,7 +11,7 @@ const Header = () => {
 
     return (
         <header id="header">
-            <Link className="logoContainer" to={'/'}>
+            <Link className="logoContainer" to={"/"}>
                 <img src={Logo} alt="logiclords.dev" />
                 <h1 className="nunito-8">
                     Logiclords<span className="nunito-4">.dev</span>
@@ -61,7 +62,11 @@ const Header = () => {
                 className="hamberger"
                 onClick={() => setHambergerOn(!hambergerOn)}
             >
-                <IoMenu className="icon" />
+                {hambergerOn ? (
+                    <IoMenu className="icon" />
+                ) : (
+                    <FaXmark className="icon" />
+                )}
             </div>
         </header>
     );
