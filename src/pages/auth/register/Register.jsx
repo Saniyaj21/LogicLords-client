@@ -6,51 +6,50 @@ import { Link, useNavigate } from "react-router-dom";
 import regImage from "./registration.png";
 
 import { Icon } from "@iconify/react";
-import Password from "../components/Password";
-import Otp from "../components/Otp";
-import Email from "../components/Email";
+
+import EmailSection from "../components/EmailSection";
+import OtpSection from "../components/OtpSection";
+import PasswordSection from "../components/PasswordSection";
+import GoogoleAuth from "../components/GoogleAuth";
 
 function Register() {
   // const [avatar, setAvatar] = useState(dp);
   const [userName, setUserName] = useState("");
   const [next, setNext] = useState("email");
-  const [email , setEmail] =useState("")
+  const [email, setEmail] = useState("");
+  const [name , setName] = useState("");
+  const [pass1 , setPass1]=useState("");
+  const [pass2 , setPass2] = useState("");
+  const [otp , setOtp]=useState();
 
-  // progress bar logic(mobile)
-  // const viewportWidth = window.innerWidth;
-  // const progress = document.getElementById("progress");
-  // if (viewportWidth < 800) {
-  //   if (next === "email") {
-  //     progress.style.border = "solid 5px #EBEBEB";
-  //   } else if (next === "otp_section") {
-  //     progress.style.borderLeft = "solid 5px #008894";
-  //   } else if (next === "password_section") {
-  //     progress.style.borderTop = "solid 5px #008894";
-  //   }
-  // }
+  const passwordHandle = (pass1, pass2) => {
+    
+    setPass1(pass1)
+    setPass2(pass2)
+    console.log(pass1, pass2);
+    
+  };
 
-
-  const passwordHandle=(pass1 , pass2)=>{
-     console.log(pass1, pass2);
-     
-  }
-
-  const emailHandle =(name , email)=>{
-    console.log(name , email);
-    setEmail(email)
+  const emailHandle = (name, email) => {
+    
+    setName(name)
+    setEmail(email);
+    console.log(name, email);
+    
     setNext("otp_section");
-  }
+  };
 
-  const otpHandle = (otp )=>{
+  const otpHandle = (otp) => {
+    setOtp(otp)
     console.log(otp);
+
     setNext("password_section");
-  }
+  };
 
-  const previousHandle =(otp)=>{
+  const previousHandle = () => {
     setNext("email");
-  }
+  };
 
-  console.log(name);
   return (
     <div className="register">
       <div className="register_new_div">
@@ -61,51 +60,35 @@ function Register() {
 
         {/* form container */}
         <div className="form_container">
-          <form className="form" encType="multipart/form-data">
-            <div>
-              <h2>Create a new Account</h2>
-            </div>
+          <h2>Create a new Account</h2>
 
-            {next === "email" ? (
-              <>
-                {/* name and email container */}
-               <Email onInputData={emailHandle}/>
-              </>
-            ) : next === "otp_section" ? (
-              <>
-                {/* otp container  */}
-            
-               <Otp email={email} onInputData={otpHandle} onPrevious={previousHandle} />      
-              </>
-            ) : (
-              <>
-                {/* password container  */}
-                <Password  onInputData={passwordHandle}/>
-              </>
-            )}
+          {next === "email" ? (
+            <>
+              {/* name and email container */}
+              <EmailSection onInputData={emailHandle} />
+            </>
+          ) : next === "otp_section" ? (
+            <>
+              {/* otp container  */}
 
+              <OtpSection
+                email={email}
+                onInputData={otpHandle}
+                onPrevious={previousHandle}
+              />
+            </>
+          ) : (
+            <>
+              {/* password container  */}
+              <PasswordSection onInputData={passwordHandle} />
+            </>
+          )}
 
-            <div>
-              <fieldset className="other_container">
-                <legend>or</legend>
-                <p>
-                  Already registered?
-                  <br />
-                  <Link to={"/login"} className="login">
-                    {" "}
-                    Login{" "}
-                  </Link>
-                </p>
-                <button>
-                  {" "}
-                  <span>contineu with</span>{" "}
-                  <Icon className="google_logo" icon="logos:google-icon" />
-                </button>
-              </fieldset>
-            </div>
-
-
-          </form>
+          <GoogoleAuth
+            othersLink={"/login"}
+            othersLinkName={"Login"}
+            othersPara={" Already registered?"}
+          />
         </div>
       </div>
     </div>
