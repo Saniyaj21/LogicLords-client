@@ -23,8 +23,8 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
                 {/* <Route path="/leader-board" element={<Leader_Board />} /> */}
-                <Route path="/auth/login" element={<Login />} />
-                <Route path="/auth/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/*" element={<ErrorPage />} />
             </Routes>
             <Footer />
