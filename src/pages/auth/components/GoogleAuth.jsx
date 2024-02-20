@@ -9,7 +9,7 @@ function GoogoleAuth({othersPara , othersLink , othersLinkName}) {
   }
   return (
     <>
-       <form action="" onSubmit={googleAuthentic}>
+       
         <fieldset className="other_container">
           <legend>or</legend>
           <p>
@@ -25,7 +25,7 @@ function GoogoleAuth({othersPara , othersLink , othersLinkName}) {
             <FcGoogle className='google_icon'/>
           </button>
         </fieldset>
-      </form> 
+      
     </>
   )
 }

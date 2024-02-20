@@ -1,7 +1,7 @@
 .other_container{
 	width: 300px;
 	border: none;
-	border-top: 2px solid #EBEBEB;
+	border-top: 2px solid var(--lightGray);
     display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
@@ -14,24 +14,29 @@
 	>p{
 		font-size: 14px;
 		.login{
-			color: blue;
+			color:var(--blue);
 			text-decoration: none;
 			font-size: 16px;
 		}
 	}
 	>button{
 		// color:#008894;
+		
 		padding: 10px;
+		
 		border-radius: 7px;
-		border: none;
-		// border:solid 1px #008894;
-		background: #EBEBEB;
+		background: var(--lightGray);
 		// font-size: 20px;
 		display: flex;
 		flex-wrap: nowrap;
 		justify-content: center;
 		align-items: center;
 		font-weight:600;
+		cursor:pointer;
+		&:hover{
+			
+			background:var(--hoverlightGray);
+		}
 		>svg{
 			margin-left: 5px;
 			width: 1.7em;
