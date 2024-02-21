@@ -1,39 +1,50 @@
 .course-cart {
   // height: 300px;
-  width: 253px;
+  width: 300px;
   border: solid 1px var(--lightGray);
   border-radius: 10px;
   background: var(--white);
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  >div{
+    width: 98%;
+    margin: 5px auto;
+  }
 }
 .video-container {
   height: 130px;
-  width: 232px;
+//   width: 98%;
   border-radius: 10px;
   overflow: hidden;
+  >img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .course-info {
-  margin: 10px 0;
-
-  .course-type {
+ 
+ .course-type {
     background: var(--lightViolate);
     border-radius: 20px;
     padding: 2px 20px;
     color: var(--violate);
     font-size: 14px;
   }
-
   .course-description {
     margin: 10px 0;
     font-weight: 700;
+    text-align: justify;
   }
 }
 
 .progress {
   height: 5px;
   width: 232px;
-  background: var(--lightGray);
+  background: linear-gradient(90deg, var(--green),var(--lightGray)  ) ;
   border-radius: 20px;
   display: none;
 }
@@ -65,16 +76,61 @@
 }
 
 .course-other-info{
+
     >p{
         font-size: 20px;
         font-weight: 700;
         
     }
-    >div{
-        font-weight: 600;
+    .ratting{
+        display: flex;
+        // flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        // border: solid 1px red;
+        >div{
+            display: flex;
+            
+        }
        .star-container{
-           margin-left:20px;
+         margin-left: 10px;
+          ul{
+            li{
+                margin-inline-end:0;
+               color:var(--green);
+              
+            }
+          }
        } 
+       .ammount-of-student{
+        //  border: solid 1px red;
+        //  width: 80px;
+        width: 68px;
+        text-align: end;
+       }
         
     }
+}
+
+.enroal-container{
+    margin: 10px 0;
+    
+    a{
+        // border: solid 1px var(--green);
+        border-radius: 20px;
+        background: var(--green);
+        padding: 7px 20px;
+        font-size: 20px;
+        text-decoration: none;
+        color: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >svg{
+            width: 30px;
+        }
+    }
+
+
 }
