@@ -27,16 +27,11 @@ function OtpSection({ email, onPrevious, onInputData }) {
      values.map((val) => {
       otp_val = otp_val + val;
     });
-    // console.log(otp_val);
-    // setOtp(otp_val);
-    // console.log(otp);
-    //for convart string to int ... 10 is a base ... use for decimal number
+   
     const otp = parseInt(otp_val , 10)
     onInputData(otp);
   };
-  const previousHandle = () => {
-    onPrevious();
-  };
+  
 
   useEffect(() => {
     console.log(email);
@@ -96,11 +91,7 @@ function OtpSection({ email, onPrevious, onInputData }) {
         </div>
 
         <div className="action-btn" id="action_otp">
-          <button onClick={previousHandle}>
-            <img src={vactor4} alt="" />
-            <img src={vactor2} alt="" className="img2" />
-            <span> Previous</span>
-          </button>
+          
           <button type="submit">
             <span>Next</span> <img className="img1" src={vactor} alt="" />
             <img src={vactor1} alt="" />
