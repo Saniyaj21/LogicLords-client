@@ -4,6 +4,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Nunito', sans-serif;
+    
 }
 
 *::selection {
@@ -13,6 +14,7 @@
 
 
 :root {
+
     --green: #008894; // This is Theme color and prmary green for the desire website 
     --hoverGreen: #007484; // This is used only on hover effects over the primary green only 
     --lightGreen: #f3feff; // This is used for backgrounds 
@@ -27,7 +29,11 @@
     --lightGray: #EBEBEB;
     --hoverlightGray:#80808054;
     --darkGray: #7F7F7F;
-    --black: #131313; // Use the black varible insted of the direct black color 
+    --black: #131313; // Use the black varible insted of the direct black color
+    --violate:#702DFF;
+    --lightViolate:#6f2dff33; 
+    background-color:var(--lightGreen) ;
+
 }
 
 
