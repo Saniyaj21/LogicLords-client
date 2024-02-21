@@ -1,21 +1,16 @@
-// .register {
-//   display: flex;
-//   flex-wrap: nowrap;
-//   justify-content: center;
-//   align-items: center;
-// }
+
 .register_new_div {
   width: 800px;
 
-  margin: 150px auto;
+  margin: 70px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 30px 0px;
   border-radius: 20px;
-  background-color: var(--white);
-  box-shadow: 0 3px 5px var(--darkGray);
+  // background-color: var(--white);
+  // box-shadow: 0 3px 5px var(--darkGray);
   font-family: nunito;
   
 }
@@ -77,32 +72,6 @@
   }
 }
 
-// .image-input{
-// 	// border: solid 1px red;
-// 	>.file-input{
-// 		display: none;
-// 		padding-left: 0px;
-
-// 	}
-// 	> .file-input::file-selector-button {
-
-// 		cursor: pointer;
-// 		width: 100%;
-// 		z-index: 2;
-// 		height: 100%;
-// 		border: none;
-// 		margin: 0%;
-// 		font-size: 20px;
-// 		font-family: Roboto;
-// 		transition: all 0.5s;
-// 		padding: 0 1vmax;
-// 		color: rgba(0, 0, 0, 0.623);
-// 		background-color: rgb(250, 244, 244);
-// 	  }
-// 	  > .file-input::file-selector-button:hover {
-// 		background-color: rgb(235, 235, 235);
-// 	  }
-// }
 
 .image_container {
   width: 400px;

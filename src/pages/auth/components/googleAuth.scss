@@ -3,7 +3,7 @@
 	border: none;
 	border-top: 2px solid var(--lightGray);
     display: flex;
-	flex-wrap: nowrap;
+	flex-direction: column;
 	justify-content: space-between;
 	>legend{
 		width: 50px;
@@ -13,17 +13,18 @@
 	}
 	>p{
 		font-size: 14px;
+		margin: 10px 0px;
 		.login{
-			color:var(--blue);
+			color:var(--green);
 			text-decoration: none;
 			font-size: 16px;
+			padding-left: 10px;
 		}
 	}
 	>button{
 		// color:#008894;
 		
 		padding: 10px;
-		
 		border-radius: 7px;
 		background: var(--lightGray);
 		// font-size: 20px;
@@ -33,6 +34,7 @@
 		align-items: center;
 		font-weight:600;
 		cursor:pointer;
+		transition: 0.3s;
 		&:hover{
 			
 			background:var(--hoverlightGray);
