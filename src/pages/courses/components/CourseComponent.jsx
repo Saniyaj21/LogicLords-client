@@ -22,7 +22,6 @@ function CourseComponent({
   isFree=true,
   progress
 }) {
-  useEffect(() => {}, []);
 
   return (
     <div className="course-cart">
@@ -57,8 +56,8 @@ function CourseComponent({
         <div className="course-other-info" id="course-other-info">
           <p>{isFree? "Free":"Paid"}</p>
 
-          {
-            ratting? (<div className="ratting">
+          
+           <div className="ratting">
             <div>
               <p className="nunito-6">{ratting}</p>
               <p className="star-container">
@@ -68,8 +67,8 @@ function CourseComponent({
             <div>
               <p className="nunito-6 ammount-of-student">({totalRattingAmmount})</p>
             </div>
-          </div>):("")
-          }
+          </div>
+          
           
         </div>
       )}
