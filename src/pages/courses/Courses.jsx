@@ -24,16 +24,17 @@ function Courses() {
         <form className="search-container">
           <input
             type="text"
-            name="search-data"
+            
             placeholder="Search your course here..."
             required
           />
-          <button type="submit">
+          <button >
             <IoMdSearch />
           </button>
         </form>
 
       <div className="watching-history"></div>
+       <CourseComponent/>
        <CourseComponent/>
       </div>
 
