@@ -1,0 +1,47 @@
+.details_conatiner{
+  padding-top: 0.3rem;
+  padding-left: 1rem;
+}
+.description_text{
+  border-bottom: 3px solid var(--green);
+  width: max-content;
+}
+
+.description_details{
+  padding-top: 0.5rem;
+}
+
+.resource_text{
+  padding-top: 2rem;
+  border-bottom: 3px solid var(--green);
+  width: max-content;
+}
+
+.design{
+  display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  @media screen and (max-width: 426px) {
+    // font-size: 1rem;
+    padding-top: 0.9rem;
+    padding-left: 0rem;
+  }
+
+  & .design_logo{
+    margin-left: 2rem;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+}
+.live_url{
+  padding-top: 0.9rem;
+  padding-left: 1rem;
+
+  @media screen and (max-width: 426px) {
+    // font-size: 1rem;
+    padding-top: 0.9rem;
+    padding-left: 0rem;
+  }
+}
