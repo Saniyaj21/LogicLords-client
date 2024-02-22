@@ -1,49 +1,43 @@
-.other_container{
+.other_container {
 	width: 300px;
 	border: none;
 	border-top: 2px solid var(--lightGray);
-    display: flex;
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	>legend{
+	> legend {
 		width: 50px;
-		padding:0 15px;
+		padding: 0 15px;
 		margin: 0 auto;
 		font-size: 20px;
 	}
-	>p{
+	> p {
 		font-size: 14px;
 		margin: 10px 0px;
-		.login{
-			color:var(--green);
+		.login {
+			color: var(--green);
 			text-decoration: none;
 			font-size: 16px;
 			padding-left: 10px;
 		}
 	}
-	>button{
-		// color:#008894;
+	> div {
 		
-		padding: 10px;
-		border-radius: 7px;
-		background: var(--lightGray);
-		// font-size: 20px;
+		height: 44px;
+		width: 100%;
+		border: 2px solid var(--green);
+		background-color: var(--white);
+		border-radius: 5px;
 		display: flex;
-		flex-wrap: nowrap;
 		justify-content: center;
 		align-items: center;
-		font-weight:600;
-		cursor:pointer;
-		transition: 0.3s;
-		&:hover{
-			
-			background:var(--hoverlightGray);
+		>div{
+			border: none;
+			width: 100%;
+			.S9gUrf-YoZ4jf{
+				border: none;
+				width: 100%;
+			}
 		}
-		>svg{
-			margin-left: 5px;
-			width: 1.7em;
-			height: 1.7em;
-		}
-
 	}
 }

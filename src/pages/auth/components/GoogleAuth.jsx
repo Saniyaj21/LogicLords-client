@@ -26,10 +26,7 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 						{othersLinkName}
 					</Link>
 				</p>
-				{/* <button type='submit'>
-					{" "}
-					<span>Contineu With</span> <FcGoogle className='google_icon' />
-				</button> */}
+				
 				<div>
 					<GoogleLogin
 						onSuccess={(credentialResponse) => {

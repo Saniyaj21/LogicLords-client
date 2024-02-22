@@ -11,7 +11,7 @@
   border-radius: 20px;
   // background-color: var(--white);
   // box-shadow: 0 3px 5px var(--darkGray);
-  font-family: nunito;
+  font-family: "nunito";
   
 }
 
@@ -126,7 +126,7 @@
 
 @media only screen and (max-width: 800px) {
   .register_new_div {
-    max-width: 330px;
+    max-width: 100%;
     margin-top: 15 0px;
     .form {
       margin: 0 auto;
