@@ -17,7 +17,7 @@
     --hoverGreen: #007484; // This is used only on hover effects over the primary green only 
     --lightGreen: #f3feff; // This is used for backgrounds 
     --blue: #0043A7; // This is used only on Links on the websites and the other necessary parts only 
-    --hoverBlue: #0043A7; // This is used only on hover effects over the primary blue color only  
+    --hoverBlue: #003c96; // This is used only on hover effects over the primary blue color only  
     --errorPrimary: #FF0101; // This is Primary red color for the desire website and used only for the error parts and some other necessary parts only if needed 
     --errorSecondary: #FF3D00; // This is secondary red which is not used in the figma design but if in future is required then this is selected 
     --warningPrimary: #FFAC07; // This is Primary yellow color it is used on in warning sections 
@@ -27,6 +27,7 @@
     --lightGray: #EBEBEB;
     --darkGray: #7F7F7F;
     --black: #131313; // Use the black varible insted of the direct black color 
+    --black25: rgba(19, 19, 19, 0.25); // Use the black25 varible for shadow purpose and other 25% opacity where needed 
 }
 
 
@@ -49,6 +50,10 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #007484;
+}
+
+body {
+    background: var(--lightGreen);
 }
 
 
