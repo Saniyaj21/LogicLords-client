@@ -22,7 +22,7 @@ function Courses() {
             </Link>
           </div>
         </div>
-        <form className="search-container">
+        <div className="search-container">
           <input
             type="text"
             placeholder="Search your course here..."
@@ -31,7 +31,7 @@ function Courses() {
           <button>
             <IoMdSearch />
           </button>
-        </form>
+        </div>
 
         <div className="course-container">
           <h3>Continue Watching </h3>
@@ -91,8 +91,8 @@ function Courses() {
               courseDescription={
                 "Beginner’s Guide to becoming a professional frontend developer"
               }
-              // ratting={"4.6"}
-              totalRattingAmmount={"300"}
+              ratting={0}
+              totalRattingAmmount={0}
               instractorName={"Sombhu Das"}
               instractorRole={"Web Developer"}
             />
