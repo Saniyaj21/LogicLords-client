@@ -35,18 +35,22 @@
     font-size: 14px;
   }
   .course-description {
-    margin: 10px 0;
+    margin: 5px 0;
    
   
   }
 }
 
-.progress {
+.progress-container {
   height: 5px;
   width: 232px;
-  background: linear-gradient(90deg, var(--green),var(--lightGray)  ) ;
+  background: var(--lightGray) ;
   border-radius: 20px;
-  display: none;
+  .progress{
+    height: 100%;
+    border-radius: 20px;
+    background: var(--green);
+  }
 }
 
 .instractor-info {
