@@ -36,8 +36,8 @@
   }
   .course-description {
     margin: 10px 0;
-    font-weight: 700;
-    text-align: justify;
+   
+  
   }
 }
 
@@ -115,20 +115,22 @@
 
 .enroal-container{
     margin: 10px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
     
     a{
-        // border: solid 1px var(--green);
-        border-radius: 20px;
-        background: var(--green);
-        padding: 7px 20px;
-        font-size: 20px;
+       
         text-decoration: none;
-        color: var(--white);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        >svg{
-            width: 30px;
+      
+        >button{
+          padding: 8px 10px;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          
         }
     }
 
