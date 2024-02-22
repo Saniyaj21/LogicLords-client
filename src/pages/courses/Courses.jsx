@@ -34,6 +34,7 @@ function Courses() {
         </form>
 
       <div className="watching-history"></div>
+       <CourseComponent isHistory={true}/>
        <CourseComponent/>
       </div>
 

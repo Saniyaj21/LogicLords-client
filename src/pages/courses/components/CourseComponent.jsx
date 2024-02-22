@@ -43,6 +43,7 @@ function CourseComponent({thumbnail , courseType , courseDescription , instracto
         </p>
       </div>
 
+
       <div className="progress" id="progress"></div>
 
       <div className="instractor-info">
