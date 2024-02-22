@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./courseComponent.scss";
 import ReactPlayer from "react-player";
 import dp from "../image/dp.png";
-import courseImg from "../image/courseImg.svg";
+import videoThumbnail from '../image/video.svg'
 // import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa6";
 import { Rate } from "antd";
@@ -27,7 +27,7 @@ function CourseComponent({
   return (
     <div className="course-cart">
       <div className="video-container">
-        <img src={courseImg} alt="" />
+        <img src={videoThumbnail} alt="" />
       </div>
 
       <div className="course-info">
