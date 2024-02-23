@@ -10,6 +10,7 @@ import Leader_Board from "./pages/leader_Board/Leader_Board";
 import GlobalRank from "./pages/leader_Board/leader_Board_Layout/GlobalRank";
 import InstituteRank from "./pages/leader_Board/leader_Board_Layout/InstituteRank";
 import LeaderBoard from "./pages/leaderBoard/LeaderBoard";
+
 import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 
@@ -30,6 +31,7 @@ function App() {
             <Footer />
         </Router>
     );
+
 }
 
 export default App;

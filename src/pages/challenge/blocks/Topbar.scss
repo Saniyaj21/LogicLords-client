@@ -1,0 +1,17 @@
+.challenges{
+  font-size:1.2rem;
+  color: var(--green);
+  cursor: pointer;
+
+    &.active_challenges{
+    color: var(--warningPrimary);
+  }
+
+  @media screen and (max-width: 426px) {
+    font-size: 1rem;
+  }
+} 
+.challenges:hover{
+   color: var(--warningPrimary);
+ }
+
