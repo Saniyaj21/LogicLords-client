@@ -8,12 +8,12 @@ const LandingBlock = () => {
             <div className="mainBlock">
                 <div className="leftBlock">
                     <div className="logicText">
-                        <h2>while(true)&#123;</h2>
+                        <h2 className="logicCode">while(true)&#123;</h2>
                         <div className="innerLogic">
-                            <h2>Learn;</h2>
-                            <h2>Build;</h2>
+                            <h2 className="logicCode">Learn;</h2>
+                            <h2 className="logicCode">Build;</h2>
                         </div>
-                        <h2>&#125;</h2>
+                        <h2 className="logicCode">&#125;</h2>
                     </div>
                     <div className="searchBar">
                         <input

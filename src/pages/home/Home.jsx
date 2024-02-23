@@ -1,4 +1,8 @@
+import DownloadApp from "./blocks/DownloadApp";
+import FeaturesInclude from "./blocks/FeaturesInclude";
 import LandingBlock from "./blocks/LandingBlock";
+import QuickTutorials from "./blocks/QuickTutorials";
+import UsersReview from "./blocks/UsersReview";
 import WhyChooseUs from "./blocks/WhyChooseUs";
 import "./home.scss";
 
@@ -7,6 +11,10 @@ const Home = () => {
         <div id="home">
             <LandingBlock />
             <WhyChooseUs />
+            <QuickTutorials />
+            <FeaturesInclude />
+            <UsersReview />
+            <DownloadApp />
 
             {/* <div className='container'>
 				<h3 className="nunito-6">.btn-sec and .btn</h3>

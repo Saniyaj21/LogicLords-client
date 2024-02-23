@@ -1,0 +1,49 @@
+.other_container{
+	width: 300px;
+	border: none;
+	border-top: 2px solid var(--lightGray);
+    display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	>legend{
+		width: 50px;
+		padding:0 15px;
+		margin: 0 auto;
+		font-size: 20px;
+	}
+	>p{
+		font-size: 14px;
+		margin: 10px 0px;
+		.login{
+			color:var(--green);
+			text-decoration: none;
+			font-size: 16px;
+			padding-left: 10px;
+		}
+	}
+	>button{
+		// color:#008894;
+		
+		padding: 10px;
+		border-radius: 7px;
+		background: var(--lightGray);
+		// font-size: 20px;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		font-weight:600;
+		cursor:pointer;
+		transition: 0.3s;
+		&:hover{
+			
+			background:var(--hoverlightGray);
+		}
+		>svg{
+			margin-left: 5px;
+			width: 1.7em;
+			height: 1.7em;
+		}
+
+	}
+}
