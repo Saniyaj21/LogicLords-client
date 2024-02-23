@@ -1,26 +1,44 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./register.scss";
-
-// import Loading from "../../layout/loader/Loading";
 import regImage from "./registration.png";
-
 import EmailSection from "../components/EmailSection";
 import OtpSection from "../components/OtpSection";
 import GoogoleAuth from "../components/GoogleAuth";
 import { useDispatch, useSelector } from "react-redux";
 import {
+	clearError,
 	registerUser,
 	selectUser,
 	verifyEmail,
 } from "../../../redux/slices/authSlice";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Register() {
+	const { isAuthenticated, status, error, authStatus } =
+		useSelector(selectUser);
 	const dispatch = useDispatch();
-	const { isAuthenticated, status, error } = useSelector(selectUser);
+	const navigate = useNavigate();
 
 	const [next, setNext] = useState("email");
 	const [email, setEmail] = useState("");
 	const [otp, setOtp] = useState();
+
+	useEffect(() => {
+		dispatch(clearError())
+		if (isAuthenticated === true) {
+			navigate("/");
+		}
+		if (authStatus.otpSend === "succeeded") {
+			toast.success("OTP sent");
+		}
+		if (authStatus.otpVerified === "succeeded") {
+			toast.success("Registered Successfull");
+		}
+		if (error) {
+			toast.error("Try again");
+		}
+	}, [dispatch, isAuthenticated, navigate, error, authStatus]);
 
 	const emailHandle = (name, email, password) => {
 		console.log(name, email, password);

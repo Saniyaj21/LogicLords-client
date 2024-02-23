@@ -1,6 +1,11 @@
 import "./home.scss";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/slices/authSlice";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+	const { isAuthenticated, user } = useSelector(selectUser);
+
 	return (
 		<div id='home'>
 			{/* <div className='container'>
@@ -9,7 +14,8 @@ const Home = () => {
 				<button className='btn'>Get Started</button>
 			</div> */}
 			<h1>Home Component</h1>
-            
+			<Link to={'/profile'}>Profile</Link>
+			{user?.name}
 		</div>
 	);
 };
