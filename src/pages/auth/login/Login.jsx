@@ -9,14 +9,32 @@ import Input from "../../../components/input/Input";
 import { Icon } from "@iconify/react";
 import verify from "./Verify.svg";
 import GoogoleAuth from "../components/GoogleAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { clearError, selectUser } from "../../../redux/slices/authSlice";
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { isAuthenticated, status, error, authStatus } =
+		useSelector(selectUser);
 
   const handleLogin = async (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+		dispatch(clearError());
+		if (isAuthenticated === true) {
+			navigate("/");
+		}
+		console.log(2);
+		if (error) {
+			toast.error("Try again");
+		}
+	}, [dispatch, isAuthenticated, navigate, error]);
 
   return (
     <main>
