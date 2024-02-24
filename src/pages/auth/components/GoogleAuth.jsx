@@ -12,11 +12,14 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [avatar, setAvatar] = useState("");
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
 	console.log(name);
 	console.log(email);
 	console.log(avatar);
+	const logIn = () => {
+		dispatch(googleSignUp({ name, email, avatar }));
+	};
 
 	return (
 		<>
@@ -29,7 +32,7 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 					</Link>
 				</p>
 
-				<div>
+				<div onClick={() => logIn()}>
 					<GoogleLogin
 						onSuccess={(credentialResponse) => {
 							let decoded = jwtDecode(credentialResponse.credential);
@@ -40,9 +43,8 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 							setAvatar(decoded.picture);
 							setEmail(decoded.email);
 							setName(`${decoded.given_name} ${decoded.family_name}`);
-							dispatch(googleSignUp({name, email, avatar}))
-
-
+							// dispatch(googleSignUp({name, email, avatar}))
+							logIn();
 						}}
 						onError={() => {
 							console.log("Login Failed");
