@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { googleSignUp } from "../../../redux/slices/authSlice";
 
@@ -14,16 +14,33 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 	const [avatar, setAvatar] = useState("");
 	const dispatch = useDispatch();
 
-	console.log(name);
-	console.log(email);
-	console.log(avatar);
 	const logIn = () => {
-		dispatch(googleSignUp({ name, email, avatar }));
+		console.log(name, email, avatar);
+		if (name && email && avatar) {
+			dispatch(googleSignUp({ name, email, avatar }));
+		}
 	};
 
+	const handleSuccess = (credentialResponse) => {
+		let decoded = jwtDecode(credentialResponse.credential);
+		setuser(decoded);
+		setAvatar(decoded.picture);
+		setEmail(decoded.email);
+		setName(`${decoded.given_name} ${decoded.family_name}`);
+	};
+	useEffect(() => {
+		logIn()
+	}, [avatar])
+	
 	return (
 		<>
-			<fieldset className='other_container'>
+			<GoogleLogin
+				onSuccess={handleSuccess} // Use the handleSuccess function
+				onError={() => {
+					console.log("Login Failed");
+				}}
+			/>
+			{/* <fieldset className='other_container'>
 				<legend>or</legend>
 				<p>
 					{othersPara}
@@ -51,7 +68,7 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 						}}
 					/>
 				</div>
-			</fieldset>
+			</fieldset> */}
 		</>
 	);
 }
