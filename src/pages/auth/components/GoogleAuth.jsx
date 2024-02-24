@@ -7,13 +7,23 @@ import { useState } from "react";
 
 function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 	const [user, setuser] = useState({});
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [avatar, setAvatar] = useState("");
+
 
 	const login = useGoogleLogin({
 		onSuccess: (tokenResponse) => {
 			let decoded = jwtDecode(tokenResponse.credential);
 			setuser(decoded);
+			setAvatar(decoded.picture)
+			setEmail(decoded.email)
+			setName(`${decoded.given_name} ${decoded.family_name}`)
 			console.log("decode", decoded);
 			console.log("tokenResponse", tokenResponse);
+			console.log(name);
+			console.log(email);
+			console.log(avatar);
 		},
 	});
 	return (
