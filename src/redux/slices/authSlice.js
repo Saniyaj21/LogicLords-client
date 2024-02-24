@@ -55,7 +55,6 @@ export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, em
 });
 // googleSignUp
 export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name, email, avatar }) => {
-    console.log(otp);
     const response = await axios.post(`${base_url}/api/user/signup/google`, {
         name, email, avatar
     }, {
