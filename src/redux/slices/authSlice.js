@@ -9,7 +9,8 @@ const initialState = {
     error: null,
     authStatus: {
         otpSend: 'idle',
-        otpVerified: 'idle'
+        otpVerified: 'idle',
+        googleStatus: 'idle'
     }
 };
 
@@ -45,6 +46,18 @@ export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, em
     console.log(otp);
     const response = await axios.post(`${base_url}/api/user/emailverify`, {
         otp, email
+    }, {
+        withCredentials: true,
+    });
+    console.log(response.data);
+    return response.data;
+
+});
+// googleSignUp
+export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name, email, avatar }) => {
+    console.log(otp);
+    const response = await axios.post(`${base_url}/api/user/signup/google`, {
+        name, email, avatar
     }, {
         withCredentials: true,
     });
@@ -114,6 +127,25 @@ const userSlice = createSlice({
             .addCase(verifyEmail.rejected, (state, action) => {
                 state.status = "failed";
                 state.authStatus.otpVerified = "failed"
+                state.error = action.error.message;
+
+            })
+
+            // googleSignUp
+            .addCase(googleSignUp.pending, (state) => {
+                state.status = "loading";
+                state.error = null;
+                state.authStatus.googleStatus = "loading"
+            })
+            .addCase(googleSignUp.fulfilled, (state, action) => {
+                state.status = "succeeded";
+                state.authStatus.googleStatus = "succeeded"
+                state.user = action.payload.user
+                state.isAuthenticated = true
+            })
+            .addCase(googleSignUp.rejected, (state, action) => {
+                state.status = "failed";
+                state.authStatus.googleStatus = "failed"
                 state.error = action.error.message;
 
             })

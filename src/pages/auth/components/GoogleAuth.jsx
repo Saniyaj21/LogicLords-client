@@ -4,28 +4,20 @@ import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { googleSignUp } from "../../../redux/slices/authSlice";
 
 function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 	const [user, setuser] = useState({});
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [avatar, setAvatar] = useState("");
+	const dispatch = useDispatch()
 
 	console.log(name);
 	console.log(email);
 	console.log(avatar);
 
-	const login = useGoogleLogin({
-		onSuccess: (tokenResponse) => {
-			let decoded = jwtDecode(tokenResponse.credential);
-			setuser(decoded);
-			setAvatar(decoded.picture);
-			setEmail(decoded.email);
-			setName(`${decoded.given_name} ${decoded.family_name}`);
-			console.log("decode", decoded);
-			console.log("tokenResponse", tokenResponse);
-		},
-	});
 	return (
 		<>
 			<fieldset className='other_container'>
@@ -48,6 +40,9 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 							setAvatar(decoded.picture);
 							setEmail(decoded.email);
 							setName(`${decoded.given_name} ${decoded.family_name}`);
+							dispatch(googleSignUp({name, email, avatar}))
+
+
 						}}
 						onError={() => {
 							console.log("Login Failed");
