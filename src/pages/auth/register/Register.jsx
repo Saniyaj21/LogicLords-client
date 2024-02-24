@@ -25,7 +25,7 @@ function Register() {
 	const [otp, setOtp] = useState();
 
 	useEffect(() => {
-		dispatch(clearError())
+		dispatch(clearError());
 		if (isAuthenticated === true) {
 			navigate("/");
 		}
@@ -57,29 +57,35 @@ function Register() {
 	};
 
 	return (
-		<div className='register'>
-			<div className='register_new_div'>
-				<div className='image_container'>
-					<img src={regImage} alt='' id='progress' />
-				</div>
+		<GoogoleAuth
+			othersLink={"/login"}
+			othersLinkName={"Login"}
+			othersPara={" Already registered?"}
+		/>
 
-				<div className='form_container'>
-					<h2>Create a new Account</h2>
+		// <div className='register'>
+		// 	<div className='register_new_div'>
+		// 		<div className='image_container'>
+		// 			<img src={regImage} alt='' id='progress' />
+		// 		</div>
 
-					{next === "email" ? (
-						<EmailSection onInputData={emailHandle} />
-					) : (
-						<OtpSection email={email} onInputData={otpHandle} />
-					)}
+		// 		<div className='form_container'>
+		// 			<h2>Create a new Account</h2>
 
-					<GoogoleAuth
-						othersLink={"/login"}
-						othersLinkName={"Login"}
-						othersPara={" Already registered?"}
-					/>
-				</div>
-			</div>
-		</div>
+		// 			{next === "email" ? (
+		// 				<EmailSection onInputData={emailHandle} />
+		// 			) : (
+		// 				<OtpSection email={email} onInputData={otpHandle} />
+		// 			)}
+
+		// 			<GoogoleAuth
+		// 				othersLink={"/login"}
+		// 				othersLinkName={"Login"}
+		// 				othersPara={" Already registered?"}
+		// 			/>
+		// 		</div>
+		// 	</div>
+		// </div>
 	);
 }
 export default Register;

@@ -14,19 +14,19 @@ import { clearError, selectUser } from "../../../redux/slices/authSlice";
 import { toast } from "react-toastify";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const { isAuthenticated, status, error, authStatus } =
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const { isAuthenticated, status, error, authStatus } =
 		useSelector(selectUser);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-  };
+	const handleLogin = async (e) => {
+		e.preventDefault();
+	};
 
-  useEffect(() => {
-		dispatch(clearError());
+	useEffect(() => {
+		// dispatch(clearError());
 		if (isAuthenticated === true) {
 			navigate("/");
 		}
@@ -36,61 +36,67 @@ function Login() {
 		}
 	}, [dispatch, isAuthenticated, navigate, error]);
 
-  return (
-    <main>
-      <div className="register_new_div">
-        <div className="image_container" id="login_img">
-          <img src={regImage} alt="" id="progress" />
-        </div>
+	return (
+		<GoogoleAuth
+			othersLink={"/register"}
+			othersLinkName={"Register"}
+			othersPara={" Don't have an account ?"}
+		/>
 
-        {/* form container */}
-        <div className="form_container">
-          <form
-            className="form"
-            encType="multipart/form-data"
-            onSubmit={handleLogin}
-          >
-            <div>
-              <h2>Welcome Back!</h2>
-            </div>
+		// <main>
+		//   <div className="register_new_div">
+		//     <div className="image_container" id="login_img">
+		//       <img src={regImage} alt="" id="progress" />
+		//     </div>
 
-            <fieldset className="input_box">
-              <legend className="placeholder">Email</legend>
-              <input
-                className="input_tag"
-                type="email"
-                name="email"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </fieldset>
+		//     {/* form container */}
+		//     <div className="form_container">
+		//       <form
+		//         className="form"
+		//         encType="multipart/form-data"
+		//         onSubmit={handleLogin}
+		//       >
+		//         <div>
+		//           <h2>Welcome Back!</h2>
+		//         </div>
 
-            <fieldset className="input_box">
-              <legend className="placeholder">Password</legend>
-              <input
-                className="input_tag"
-                type="password"
-                name="password"
-                required
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </fieldset>
+		//         <fieldset className="input_box">
+		//           <legend className="placeholder">Email</legend>
+		//           <input
+		//             className="input_tag"
+		//             type="email"
+		//             name="email"
+		//             required
+		//             onChange={(e) => setEmail(e.target.value)}
+		//           />
+		//         </fieldset>
 
-            <div className="action-btn">
-              <button type="submit">
-                <img src={verify} alt="" /> &nbsp; Login
-              </button>
-            </div>
-            <GoogoleAuth
-              othersLink={"/register"}
-              othersLinkName={"Register"}
-              othersPara={" Don't have an account ?"}
-            />
-          </form>
-        </div>
-      </div>
-    </main>
-  );
+		//         <fieldset className="input_box">
+		//           <legend className="placeholder">Password</legend>
+		//           <input
+		//             className="input_tag"
+		//             type="password"
+		//             name="password"
+		//             required
+		//             onChange={(e) => setPassword(e.target.value)}
+		//           />
+		//         </fieldset>
+
+		//         <div className="action-btn">
+		//           <button type="submit">
+		//             <img src={verify} alt="" /> &nbsp; Login
+		//           </button>
+		//         </div>
+		//         <GoogoleAuth
+		//           othersLink={"/register"}
+		//           othersLinkName={"Register"}
+		//           othersPara={" Don't have an account ?"}
+		//         />
+		//       </form>
+		//     </div>
+		//   </div>
+		// </main>
+	);
 }
 
 export default Login;

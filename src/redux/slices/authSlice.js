@@ -55,6 +55,8 @@ export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, em
 });
 // googleSignUp
 export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name, email, avatar }) => {
+
+    console.log("Checking", name, email, avatar);
     const response = await axios.post(`${base_url}/api/user/signup/google`, {
         name, email, avatar
     }, {
@@ -63,6 +65,20 @@ export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name,
     console.log(response.data);
     return response.data;
 
+});
+
+// logout user
+export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
+
+    const response = await axios.get(`${base_url}/api/user/logout`,
+        {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            withCredentials: true,
+        });
+
+    return response.data;
 });
 
 // Creating slice
@@ -145,6 +161,26 @@ const userSlice = createSlice({
             .addCase(googleSignUp.rejected, (state, action) => {
                 state.status = "failed";
                 state.authStatus.googleStatus = "failed"
+                state.error = action.error.message;
+
+            })
+
+
+
+            // logout user
+            .addCase(logoutUser.pending, (state) => {
+                state.status = 'loading';
+                state.error = null;
+            })
+            .addCase(logoutUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.user = null;
+                state.isAuthenticated = false;
+
+            })
+            .addCase(logoutUser.rejected, (state, action) => {
+
+                state.status = 'failed';
                 state.error = action.error.message;
 
             })
