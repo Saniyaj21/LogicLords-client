@@ -6,11 +6,15 @@
 // .btn			 -> Button Primary
 .btn {
 	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
 	background: none;
 	font-size: 1.1rem;
 	// padding: 0.375rem 0.724rem;
 	padding: 10px 20px;
-	font-family:  "nunito";
+	font-family:  "Roboto";
 	font-weight: 500;
 	cursor: pointer;
 	transition: 0.3s;

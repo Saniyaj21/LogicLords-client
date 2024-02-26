@@ -24,7 +24,6 @@ export const getUser = createAsyncThunk('user/getUser', async () => {
         },
         withCredentials: true,
     });
-    console.log(response);
     return response.data;
 });
 
@@ -49,7 +48,6 @@ export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, em
     }, {
         withCredentials: true,
     });
-    console.log(response.data);
     return response.data;
 
 });
@@ -62,7 +60,6 @@ export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name,
     }, {
         withCredentials: true,
     });
-    console.log(response.data);
     return response.data;
 
 });
