@@ -55,10 +55,25 @@
 				.logicCode {
 					font-size: 2.234rem !important;
 					text-align: left;
+					color: rgb(255, 255, 43);
+
+					.while {
+						color: rgb(255, 132, 241);
+					}
+
+					.true {
+						color: aqua;
+					}
 				}
 
 				.innerLogic {
 					padding-left: 4.486rem;
+
+					.logicCode {
+						color: var(--white);
+						margin: 0;
+
+					}
 				}
 
 				@media screen and (max-width:450px) {
