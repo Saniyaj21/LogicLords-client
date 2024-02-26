@@ -22,13 +22,13 @@ const Footer = () => {
                 <div className="columnsDevider">
                     <h3>Quick Links</h3>
                     <div className="linksContainer">
-                        <Link>About</Link>
-                        <Link>Courses</Link>
-                        <Link>Career</Link>
-                        <Link>FAQ</Link>
-                        <Link>Privecy Policy</Link>
-                        <Link>Send Feedback</Link>
-                        <Link>Partnership</Link>
+                        <Link to="/">&#10095;&nbsp;About</Link>
+                        <Link to="/">&#10095;&nbsp;Courses</Link>
+                        <Link to="/">&#10095;&nbsp;Career</Link>
+                        <Link to="/">&#10095;&nbsp;FAQ</Link>
+                        <Link to="/">&#10095;&nbsp;Privecy Policy</Link>
+                        <Link to="/">&#10095;&nbsp;Send Feedback</Link>
+                        <Link to="/">&#10095;&nbsp;Partnership</Link>
                     </div>
                 </div>
                 <div className="columnsDevider">
