@@ -1,24 +1,42 @@
 import "./googleAuth.scss";
-import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { googleSignUp } from "../../../redux/slices/authSlice";
+import { toast } from "react-toastify";
 
 function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
-	const [user, setuser] = useState({});
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [avatar, setAvatar] = useState("");
+	const dispatch = useDispatch();
 
-	const login = useGoogleLogin({
-		onSuccess: (tokenResponse) => {
-			let decoded = jwtDecode(tokenResponse.credential);
-			setuser(decoded);
-			console.log("decode", decoded);
-			console.log("tokenResponse", tokenResponse);
-		},
-	});
+	const logIn = () => {
+		if (name && email && avatar) {
+			dispatch(googleSignUp({ name, email, avatar }));
+		}
+	};
+
+	const handleSuccess = (credentialResponse) => {
+		let decoded = jwtDecode(credentialResponse.credential);
+		setAvatar(decoded.picture);
+		setEmail(decoded.email);
+		setName(`${decoded.given_name} ${decoded.family_name}`);
+	};
+	useEffect(() => {
+		logIn()
+	}, [avatar])
+	
 	return (
 		<>
-			<fieldset className='other_container'>
+			<GoogleLogin
+				onSuccess={handleSuccess} // Use the handleSuccess function
+				onError={() => {
+					toast.error("Login Failed! Try again.")
+				}}
+			/>
+			{/* <fieldset className='other_container'>
 				<legend>or</legend>
 				<p>
 					{othersPara}
@@ -26,21 +44,27 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 						{othersLinkName}
 					</Link>
 				</p>
-				
-				<div>
+
+				<div onClick={() => logIn()}>
 					<GoogleLogin
 						onSuccess={(credentialResponse) => {
 							let decoded = jwtDecode(credentialResponse.credential);
 							setuser(decoded);
 							console.log(decoded);
 							console.log(user);
+							setuser(decoded);
+							setAvatar(decoded.picture);
+							setEmail(decoded.email);
+							setName(`${decoded.given_name} ${decoded.family_name}`);
+							// dispatch(googleSignUp({name, email, avatar}))
+							logIn();
 						}}
 						onError={() => {
 							console.log("Login Failed");
 						}}
 					/>
 				</div>
-			</fieldset>
+			</fieldset> */}
 		</>
 	);
 }

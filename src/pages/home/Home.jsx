@@ -5,8 +5,12 @@ import QuickTutorials from "./blocks/QuickTutorials";
 import UsersReview from "./blocks/UsersReview";
 import WhyChooseUs from "./blocks/WhyChooseUs";
 import "./home.scss";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/slices/authSlice";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+
     return (
         <div id="home">
             <LandingBlock />
@@ -16,14 +20,12 @@ const Home = () => {
             <UsersReview />
             <DownloadApp />
 
-            {/* <div className='container'>
-				<h3 className="nunito-6">.btn-sec and .btn</h3>
-				<button className='btn-sec'>Hover Me</button>
-				<button className='btn'>Get Started</button>
-			</div> */}
-            {/* <h1>Home Component</h1> */}
-        </div>
-    );
+         
+
+
+		</div>
+	);
+
 };
 
 export default Home;
