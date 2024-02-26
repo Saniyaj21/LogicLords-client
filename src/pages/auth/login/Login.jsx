@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
 import "./login.scss";
-// import { toast } from "react-hot-toast";
-
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import regImage from "../register/registration.png";
-import Input from "../../../components/input/Input";
 import { Icon } from "@iconify/react";
 import verify from "./Verify.svg";
 import GoogoleAuth from "../components/GoogleAuth";
@@ -18,7 +14,7 @@ function Login() {
 	const [password, setPassword] = useState("");
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { isAuthenticated, status, error, authStatus } =
+	const { isAuthenticated, status, error, authStatus, user } =
 		useSelector(selectUser);
 
 	const handleLogin = async (e) => {
@@ -28,9 +24,9 @@ function Login() {
 	useEffect(() => {
 		// dispatch(clearError());
 		if (isAuthenticated === true) {
+			toast.success(`Login as ${user?.name} `);
 			navigate("/");
 		}
-		console.log(2);
 		if (error) {
 			toast.error("Try again");
 		}

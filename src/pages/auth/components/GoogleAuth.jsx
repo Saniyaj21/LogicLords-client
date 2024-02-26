@@ -1,21 +1,18 @@
 import "./googleAuth.scss";
-import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { googleSignUp } from "../../../redux/slices/authSlice";
+import { toast } from "react-toastify";
 
 function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
-	const [user, setuser] = useState({});
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [avatar, setAvatar] = useState("");
 	const dispatch = useDispatch();
 
 	const logIn = () => {
-		console.log(name, email, avatar);
 		if (name && email && avatar) {
 			dispatch(googleSignUp({ name, email, avatar }));
 		}
@@ -23,7 +20,6 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 
 	const handleSuccess = (credentialResponse) => {
 		let decoded = jwtDecode(credentialResponse.credential);
-		setuser(decoded);
 		setAvatar(decoded.picture);
 		setEmail(decoded.email);
 		setName(`${decoded.given_name} ${decoded.family_name}`);
@@ -37,7 +33,7 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 			<GoogleLogin
 				onSuccess={handleSuccess} // Use the handleSuccess function
 				onError={() => {
-					console.log("Login Failed");
+					toast.error("Login Failed! Try again.")
 				}}
 			/>
 			{/* <fieldset className='other_container'>

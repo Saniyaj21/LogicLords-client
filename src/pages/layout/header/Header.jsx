@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
@@ -7,14 +7,18 @@ import profile from "../../../media/default_profile.png";
 import "./header.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, selectUser } from "../../../redux/slices/authSlice";
+import { HiOutlineLogout } from "react-icons/hi";
+import { TbLogin2 } from "react-icons/tb";
 
 const Header = () => {
 	const [hambergerOn, setHambergerOn] = useState(true);
 	const dispatch = useDispatch();
-	const { isAuthenticated } = useSelector(selectUser);
-    const logout = () =>{
-        dispatch(logoutUser())
-    }
+	const { isAuthenticated, user } = useSelector(selectUser);
+	const logout = () => {
+		dispatch(logoutUser());
+	};
+
+	
 
 	return (
 		<header id='header'>
@@ -31,11 +35,19 @@ const Header = () => {
 					hambergerOn ? "linksContainer" : "linksContainer hambergerOn"
 				}
 			>
-				<div className='profileContainerMobile'>
-					<Link to='/profile/:uid'>
-						<img src={profile} alt='profile' />
-					</Link>
-				</div>
+				{isAuthenticated ? (
+					<div className='profileContainerMobile'>
+						<Link to='/profile/:uid'>
+							<img src={user?.googleAvatar} alt='profile' />
+						</Link>
+					</div>
+				) : (
+					<div className='profileContainerMobile'>
+						<Link to='/profile/:uid'>
+							<img src={profile} alt='profile' />
+						</Link>
+					</div>
+				)}
 
 				<Link to='/' className='currentLink'>
 					<li>Home</li>
@@ -52,18 +64,30 @@ const Header = () => {
 
 				<div className='authContainer'>
 					{isAuthenticated ? (
-						<button onClick={logout}>Logout</button>
+						
+							<button className='btn' onClick={logout}>
+								<HiOutlineLogout/> Logout
+							</button>
+						
 					) : (
 						<Link to='/login'>
-							<button className='btn'>Join Us</button>
+							<button className='btn'> <TbLogin2/>Login</button>
 						</Link>
 					)}
+					{isAuthenticated ? (
+						<div className='profileContainer'>
+							<Link to='/profile/:uid'>
+								<img src={user?.googleAvatar} alt='profile' />
+							</Link>
+						</div>
+					) : (
+						<div className='profileContainer'>
+							<Link to='/profile/:uid'>
+								<img src={profile} alt='profile' />
+							</Link>
+						</div>
+					)}
 
-					<div className='profileContainer'>
-						<Link to='/profile/:uid'>
-							<img src={profile} alt='profile' />
-						</Link>
-					</div>
 					{/* <Link to="/auth/register">Register</Link> */}
 				</div>
 			</ul>
