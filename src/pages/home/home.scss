@@ -11,8 +11,14 @@
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
+	overflow: hidden;
 
 	@media screen and (max-width:450px) {
+		height: auto;
+		gap: 2rem;
+	}
+
+	@media screen and (min-width:768px) and (max-width:1024px) {
 		height: auto;
 		gap: 2rem;
 	}
@@ -33,6 +39,11 @@
 			gap: 1rem;
 		}
 
+		@media screen and (min-width:768px) and (max-width:1024px) {
+			height: auto;
+			gap: 1rem;
+		}
+
 		.leftBlock {
 			padding-left: 10rem;
 			width: 100%;
@@ -48,6 +59,11 @@
 
 			@media screen and (max-width:450px) {
 				padding-left: 0;
+			}
+
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				padding-left: 1rem;
+				width: 70%;
 			}
 
 			.logicText {
@@ -140,11 +156,22 @@
 					width: 100%;
 				}
 
+				@media screen and (min-width:768px) and (max-width:1024px) {
+					width: 100%;
+					height: auto;
+				}
+
 			}
 
 			@media screen and (max-width:450px) {
 				height: auto;
 				width: 100%;
+			}
+
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				width: 100%;
+				height: auto;
+
 			}
 		}
 	}
@@ -224,6 +251,10 @@
 			padding-inline: 1rem;
 		}
 
+		@media screen and (min-width:768px) and (max-width:1024px) {
+			padding-inline: 2rem;
+		}
+
 		.leftBlock {
 			width: 50%;
 			padding: 2rem;
@@ -260,6 +291,10 @@
 					padding-inline: 0.5rem;
 				}
 
+				@media screen and (min-width:768px) and (max-width:1024px) {
+					width: 100%;
+				}
+
 				&_title {
 					font-size: 1.3rem;
 					font-weight: 700;
@@ -287,6 +322,10 @@
 			gap: 0.7rem;
 		}
 
+		@media screen and (min-width:768px) and (max-width:1024px) {
+			padding-inline: 2rem;
+		}
+
 		.leftBlock {
 			width: 50%;
 			display: flex;
@@ -299,6 +338,8 @@
 				margin-top: 0.5rem;
 			}
 
+
+
 			.contentBlock {
 				width: 80%;
 				padding-inline: 2rem;
@@ -306,6 +347,10 @@
 				@media screen and (max-width:450px) {
 					width: 100%;
 					padding-inline: 0.5rem;
+				}
+
+				@media screen and (min-width:768px) and (max-width:1024px) {
+					width: 100%;
 				}
 
 				&_title {
@@ -349,6 +394,11 @@
 		height: 20rem;
 	}
 
+	@media screen and (min-width:768px) and (max-width:1024px) {
+		height: 26rem;
+		margin-block: 0.8rem;
+	}
+
 	.containerBox {
 		position: relative;
 		background-color: var(--green);
@@ -369,6 +419,11 @@
 				width: 100%;
 				top: 1rem;
 				padding-inline: 1rem;
+			}
+
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				width: 90%;
+				padding-inline: 2rem;
 			}
 
 			.titleText {
@@ -413,6 +468,10 @@
 				// padding: 0.7rem;
 			}
 
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				width: 57%;
+			}
+
 			img {
 				// position: absolute;
 				width: 100%;
@@ -435,11 +494,20 @@
 		gap: 1rem;
 	}
 
+	@media screen and (min-width:768px) and (max-width:1024px) {
+		margin-top: 2.5rem;
+		padding: 2rem 1rem;
+	}
+
 	h1 {
 		padding-inline: 6rem;
 
 		@media screen and (max-width:450px) {
 			padding-inline: 0rem;
+		}
+
+		@media screen and (min-width:768px) and (max-width:1024px) {
+			padding-inline: 1rem;
 		}
 	}
 
@@ -473,6 +541,10 @@
 				@media screen and (max-width:450px) {
 					width: 80%;
 				}
+
+				@media screen and (min-width:768px) and (max-width:1024px) {
+					width: 70%;
+				}
 			}
 
 			.featuresDetails {
@@ -481,6 +553,10 @@
 
 				@media screen and (max-width:450px) {
 					width: 100%;
+				}
+
+				@media screen and (min-width:768px) and (max-width:1024px) {
+					width: 90%;
 				}
 
 				h4 {
@@ -512,6 +588,11 @@
 		height: auto;
 		padding-block: 1rem;
 		padding-inline: 1rem;
+	}
+
+	@media screen and (min-width:768px) and (max-width:1024px) {
+		padding-inline: 1rem;
+		padding-top: 1rem;
 	}
 
 	h2 {
@@ -550,6 +631,10 @@
 				padding: 0;
 			}
 
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				width: 45%;
+			}
+
 			img {
 				height: 100%;
 				position: absolute;
@@ -558,6 +643,11 @@
 
 				@media screen and (max-width:450px) {
 					position: relative;
+					width: 100%;
+					height: auto;
+				}
+
+				@media screen and (min-width:768px) and (max-width:1024px) {
 					width: 100%;
 					height: auto;
 				}
@@ -572,6 +662,10 @@
 			@media screen and (max-width:450px) {
 				width: 100%;
 				height: 14rem;
+			}
+
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				width: 65%;
 			}
 		}
 	}
@@ -590,6 +684,10 @@
 
 		@media screen and (max-width:450px) {
 			width: 7rem;
+		}
+
+		@media screen and (min-width:768px) and (max-width:1024px) {
+			width: 16rem;
 		}
 	}
 
