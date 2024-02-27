@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { googleSignUp } from "../../../redux/slices/authSlice";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 	const [name, setName] = useState("");
@@ -25,46 +26,34 @@ function GoogoleAuth({ othersPara, othersLink, othersLinkName }) {
 		setName(`${decoded.given_name} ${decoded.family_name}`);
 	};
 	useEffect(() => {
-		logIn()
-	}, [avatar])
-	
+		logIn();
+	}, [avatar]);
+
 	return (
 		<>
-			<GoogleLogin
-				onSuccess={handleSuccess} // Use the handleSuccess function
-				onError={() => {
-					toast.error("Login Failed! Try again.")
-				}}
-			/>
-			{/* <fieldset className='other_container'>
-				<legend>or</legend>
-				<p>
+			<div className="google-container">
+				<p className="nunito-6">
 					{othersPara}
 					<Link to={othersLink} className='login'>
 						{othersLinkName}
 					</Link>
 				</p>
+				<div className="or-container">
+					<div className="bar-line"></div>
+					<div className="nunito-6">OR</div>
+					<div className="bar-line"></div>
+				</div>
 
-				<div onClick={() => logIn()}>
+				<div className="google-button-container">
+					<p className="nunito-6">Continue With Google</p>
 					<GoogleLogin
-						onSuccess={(credentialResponse) => {
-							let decoded = jwtDecode(credentialResponse.credential);
-							setuser(decoded);
-							console.log(decoded);
-							console.log(user);
-							setuser(decoded);
-							setAvatar(decoded.picture);
-							setEmail(decoded.email);
-							setName(`${decoded.given_name} ${decoded.family_name}`);
-							// dispatch(googleSignUp({name, email, avatar}))
-							logIn();
-						}}
+						onSuccess={handleSuccess}
 						onError={() => {
-							console.log("Login Failed");
+							toast.error("Login Failed! Try again.");
 						}}
 					/>
 				</div>
-			</fieldset> */}
+			</div>
 		</>
 	);
 }

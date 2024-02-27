@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser, selectUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import GoogoleAuth from "./pages/auth/components/GoogleAuth";
+import Challenge from "./pages/challenge/Challenge";
 
 function App() {
 	const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
 				<Route path='/' element={<Home />} exact />
 
 				<Route path='/login' element={<Login />} />
+				<Route path='/register' element={<Register />} />
 
 				{/* <Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} /> */}
@@ -46,6 +48,8 @@ function App() {
 				<Route path='/courses' element={<Courses />} />
 				<Route path='/projects' element={<Projects />} />
 				<Route path='/leaderboard' element={<LeaderBoard />} />
+				<Route path='/challenges' element={<Challenge />} />
+
 				<Route path='/*' element={<ErrorPage />} />
 			</Routes>
 			<Footer />

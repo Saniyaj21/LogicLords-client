@@ -18,7 +18,6 @@ const Header = () => {
 		dispatch(logoutUser());
 	};
 
-	
 
 	return (
 		<header id='header'>

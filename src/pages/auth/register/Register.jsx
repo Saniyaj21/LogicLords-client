@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import "./register.scss";
 import regImage from "./registration.png";
-import EmailSection from "../components/EmailSection";
-import OtpSection from "../components/OtpSection";
 import GoogoleAuth from "../components/GoogleAuth";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	clearError,
 	registerUser,
 	selectUser,
-	verifyEmail,
 } from "../../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,72 +17,93 @@ function Register() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const [next, setNext] = useState("email");
-	const [email, setEmail] = useState("");
-	const [otp, setOtp] = useState();
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [pass2, setPass2] = useState('');
 
 	useEffect(() => {
 		dispatch(clearError());
 		if (isAuthenticated === true) {
 			navigate("/");
 		}
-		if (authStatus.otpSend === "succeeded") {
-			toast.success("OTP sent");
-		}
-		if (authStatus.otpVerified === "succeeded") {
-			toast.success("Registered Successfull");
+		if (password !== pass2) {
+			toast.error("Confirm Password again.")
 		}
 		if (error) {
 			toast.error("Try again");
 		}
-	}, [dispatch, isAuthenticated, navigate, error, authStatus]);
+	}, [dispatch, isAuthenticated, navigate, error ]);
 
-	const emailHandle = (name, email, password) => {
+	const handleRegister = (e) => {
+		e.preventDefault();
 		console.log(name, email, password);
-		setEmail(email);
 		dispatch(registerUser({ name, email, password }));
-
-		setNext("otp_section");
-	};
-
-	const otpHandle = (otp) => {
-		setOtp(otp);
-		console.log(otp);
-		dispatch(verifyEmail({ otp, email }));
-
-		setNext("password_section");
 	};
 
 	return (
-		<GoogoleAuth
-			othersLink={"/login"}
-			othersLinkName={"Login"}
-			othersPara={" Already registered?"}
-		/>
+		<div className='register'>
+			<div className='register_new_div'>
+				<div className='image_container'>
+					<img src={regImage} alt='' id='progress' />
+				</div>
 
-		// <div className='register'>
-		// 	<div className='register_new_div'>
-		// 		<div className='image_container'>
-		// 			<img src={regImage} alt='' id='progress' />
-		// 		</div>
+				<div className='form_container'>
+					<h2>Create a new Account</h2>
 
-		// 		<div className='form_container'>
-		// 			<h2>Create a new Account</h2>
+					<form onSubmit={handleRegister}>
+						<fieldset className='input_box'>
+							<legend className='placeholder'>Name</legend>
+							<input
+								className='input_tag'
+								type='text'
+								name='name'
+								required
+								onChange={(e) => setName(e.target.value)}
+							/>
+						</fieldset>
 
-		// 			{next === "email" ? (
-		// 				<EmailSection onInputData={emailHandle} />
-		// 			) : (
-		// 				<OtpSection email={email} onInputData={otpHandle} />
-		// 			)}
+						<fieldset className='input_box'>
+							<legend className='placeholder'>Email</legend>
+							<input
+								className='input_tag'
+								type='email'
+								name='email'
+								required
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</fieldset>
+						<fieldset className='input_box'>
+							<legend className='placeholder'>Password</legend>
+							<input
+								className='input_tag'
+								type='password'
+								required
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+						</fieldset>
+						<fieldset className='input_box'>
+							<legend className='placeholder'>Confirm Password</legend>
+							<input
+								className='input_tag'
+								type='password'
+								required
+								onChange={(e) => setPass2(e.target.value)}
+							/>
+						</fieldset>
 
-		// 			<GoogoleAuth
-		// 				othersLink={"/login"}
-		// 				othersLinkName={"Login"}
-		// 				othersPara={" Already registered?"}
-		// 			/>
-		// 		</div>
-		// 	</div>
-		// </div>
+						<div className='action-btn'>
+							<button type='submit'>Register</button>
+						</div>
+					</form>
+					<GoogoleAuth
+						othersLink={"/login"}
+						othersLinkName={"Login"}
+						othersPara={" Already registered?"}
+					/>
+				</div>
+			</div>
+		</div>
 	);
 }
 export default Register;
