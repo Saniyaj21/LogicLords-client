@@ -45,7 +45,7 @@ const LeaderBoard = () => {
 							<p>Participate in weekly challanges to push your rank up.</p>
 							<br />
 							{TempArray.map((item, index) => {
-								return <RankCard item={item} index={index} />;
+								return <RankCard item={item} key={index} />;
 							})}
 						</div>
 					</div>
