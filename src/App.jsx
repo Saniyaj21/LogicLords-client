@@ -20,37 +20,37 @@ import { useEffect } from "react";
 import GoogoleAuth from "./pages/auth/components/GoogleAuth";
 
 function App() {
-	const dispatch = useDispatch();
-	const { isAuthenticated, user } = useSelector(selectUser);
-	useEffect(() => {
-		dispatch(getUser());
-	}, [dispatch, isAuthenticated]);
+    const dispatch = useDispatch();
+    const { isAuthenticated, user } = useSelector(selectUser);
+    useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch, isAuthenticated]);
 
-	return (
-		<Router>
-			<Header />
-			<ToastContainer />
-			<Routes>
-				{/* Restricted routes */}
-				<Route element={<ProtectedRoute />}>
-					<Route path='/profile' element={<Profile />} />
-				</Route>
+    return (
+        <Router>
+            <Header />
+            <ToastContainer />
+            <Routes>
+                {/* Restricted routes */}
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/profile" element={<Profile />} />
+                </Route>
 
-				<Route path='/' element={<Home />} exact />
+                <Route path="/" element={<Home />} exact />
 
-				<Route path='/login' element={<Login />} />
+                <Route path="/login" element={<Login />} />
 
-				{/* <Route path='/login' element={<Login />} />
+                {/* <Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} /> */}
 
-				<Route path='/courses' element={<Courses />} />
-				<Route path='/projects' element={<Projects />} />
-				<Route path='/leaderboard' element={<LeaderBoard />} />
-				<Route path='/*' element={<ErrorPage />} />
-			</Routes>
-			<Footer />
-		</Router>
-	);
+                <Route path="/courses" element={<Courses />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/leaderboard" element={<LeaderBoard />} />
+                <Route path="/*" element={<ErrorPage />} />
+            </Routes>
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;
