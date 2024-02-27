@@ -40,21 +40,19 @@ export const registerUser = createAsyncThunk('user/registerUser', async ({ name,
 
 });
 
-// register user verify email
-export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, email }) => {
-    console.log(otp);
-    const response = await axios.post(`${base_url}/api/user/emailverify`, {
-        otp, email
-    }, {
-        withCredentials: true,
-    });
-    return response.data;
+// // register user verify email
+// export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, email }) => {
+//     const response = await axios.post(`${base_url}/api/user/emailverify`, {
+//         otp, email
+//     }, {
+//         withCredentials: true,
+//     });
+//     return response.data;
 
-});
+// });
 // googleSignUp
 export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name, email, avatar }) => {
 
-    console.log("Checking", name, email, avatar);
     const response = await axios.post(`${base_url}/api/user/signup/google`, {
         name, email, avatar
     }, {
@@ -63,6 +61,24 @@ export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name,
     return response.data;
 
 });
+// login user
+export const loginUser = createAsyncThunk('user/loginUser', async ({ email, password }) => {
+
+    const response = await axios.post(`${base_url}/api/user/login`,
+        {
+            email,
+            password
+        },
+        {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            withCredentials: true,
+        });
+
+    return response.data;
+});
+
 
 // logout user
 export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
@@ -99,9 +115,15 @@ const userSlice = createSlice({
                 state.error = null;
             })
             .addCase(getUser.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.user = action.payload.user;
-                state.isAuthenticated = true;
+                if (action.payload.success === true) {
+                    state.status = 'succeeded';
+                    state.user = action.payload.user;
+                    state.isAuthenticated = true;
+                }
+                else {
+                    state.status = 'failed';
+                }
+
             })
             .addCase(getUser.rejected, (state, action) => {
                 state.status = 'failed';
@@ -117,6 +139,7 @@ const userSlice = createSlice({
                 state.status = "succeeded";
                 state.authStatus.otpSend = "succeeded"
                 state.user = action.payload.user;
+                state.isAuthenticated = true
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.status = "failed";
@@ -124,24 +147,24 @@ const userSlice = createSlice({
                 state.error = action.error.message;
 
             })
-            // register users email verification
-            .addCase(verifyEmail.pending, (state) => {
-                state.status = "loading";
-                state.authStatus.otpVerified = "loading"
-                state.error = null;
-            })
-            .addCase(verifyEmail.fulfilled, (state, action) => {
-                state.status = "succeeded";
-                state.authStatus.otpVerified = "succeeded"
-                state.isAuthenticated = true
-                state.user = action.payload.user;
-            })
-            .addCase(verifyEmail.rejected, (state, action) => {
-                state.status = "failed";
-                state.authStatus.otpVerified = "failed"
-                state.error = action.error.message;
+            // // register users email verification
+            // .addCase(verifyEmail.pending, (state) => {
+            //     state.status = "loading";
+            //     state.authStatus.otpVerified = "loading"
+            //     state.error = null;
+            // })
+            // .addCase(verifyEmail.fulfilled, (state, action) => {
+            //     state.status = "succeeded";
+            //     state.authStatus.otpVerified = "succeeded"
+            //     state.isAuthenticated = true
+            //     state.user = action.payload.user;
+            // })
+            // .addCase(verifyEmail.rejected, (state, action) => {
+            //     state.status = "failed";
+            //     state.authStatus.otpVerified = "failed"
+            //     state.error = action.error.message;
 
-            })
+            // })
 
             // googleSignUp
             .addCase(googleSignUp.pending, (state) => {
@@ -160,6 +183,22 @@ const userSlice = createSlice({
                 state.authStatus.googleStatus = "failed"
                 state.error = action.error.message;
 
+            })
+
+            // login
+            .addCase(loginUser.pending, (state) => {
+                state.status = 'loading';
+                state.error = null
+            })
+            .addCase(loginUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.user = action.payload.user;
+                state.isAuthenticated = true;
+
+            })
+            .addCase(loginUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
             })
 
 
