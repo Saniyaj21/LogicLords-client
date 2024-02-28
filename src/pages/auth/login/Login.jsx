@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 import verify from "./Verify.svg";
 import GoogoleAuth from "../components/GoogleAuth";
 import { useDispatch, useSelector } from "react-redux";
-import { clearError, selectUser } from "../../../redux/slices/authSlice";
+import { clearError, loginUser, selectUser } from "../../../redux/slices/authSlice";
 import { toast } from "react-toastify";
 
 function Login() {
@@ -19,6 +19,7 @@ function Login() {
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
+		dispatch(loginUser({email, password}))
 	};
 
 	useEffect(() => {
@@ -28,70 +29,70 @@ function Login() {
 			navigate("/");
 		}
 		if (error) {
-			toast.error("Try again");
+			toast.error("This happen on Slow Network.");
 		}
 	}, [dispatch, isAuthenticated, navigate, error]);
 
 	return (
-		<GoogoleAuth
-			othersLink={"/register"}
-			othersLinkName={"Register"}
-			othersPara={" Don't have an account ?"}
-		/>
+		// <GoogoleAuth
+		// 	othersLink={"/register"}
+		// 	othersLinkName={"Register"}
+		// 	othersPara={" Don't have an account ?"}
+		// />
 
-		// <main>
-		//   <div className="register_new_div">
-		//     <div className="image_container" id="login_img">
-		//       <img src={regImage} alt="" id="progress" />
-		//     </div>
+		<main>
+		  <div className="register_new_div">
+		    <div className="image_container" id="login_img">
+		      <img src={regImage} alt="" id="progress" />
+		    </div>
 
-		//     {/* form container */}
-		//     <div className="form_container">
-		//       <form
-		//         className="form"
-		//         encType="multipart/form-data"
-		//         onSubmit={handleLogin}
-		//       >
-		//         <div>
-		//           <h2>Welcome Back!</h2>
-		//         </div>
+		    {/* form container */}
+		    <div className="form_container">
+		      <form
+		        className="form"
+		        encType="multipart/form-data"
+		        onSubmit={handleLogin}
+		      >
+		        <div>
+		          <h2>Welcome Back!</h2>
+		        </div>
 
-		//         <fieldset className="input_box">
-		//           <legend className="placeholder">Email</legend>
-		//           <input
-		//             className="input_tag"
-		//             type="email"
-		//             name="email"
-		//             required
-		//             onChange={(e) => setEmail(e.target.value)}
-		//           />
-		//         </fieldset>
+		        <fieldset className="input_box">
+		          <legend className="placeholder">Email</legend>
+		          <input
+		            className="input_tag"
+		            type="email"
+		            name="email"
+		            required
+		            onChange={(e) => setEmail(e.target.value)}
+		          />
+		        </fieldset>
 
-		//         <fieldset className="input_box">
-		//           <legend className="placeholder">Password</legend>
-		//           <input
-		//             className="input_tag"
-		//             type="password"
-		//             name="password"
-		//             required
-		//             onChange={(e) => setPassword(e.target.value)}
-		//           />
-		//         </fieldset>
+		        <fieldset className="input_box">
+		          <legend className="placeholder">Password</legend>
+		          <input
+		            className="input_tag"
+		            type="password"
+		            name="password"
+		            required
+		            onChange={(e) => setPassword(e.target.value)}
+		          />
+		        </fieldset>
 
-		//         <div className="action-btn">
-		//           <button type="submit">
-		//             <img src={verify} alt="" /> &nbsp; Login
-		//           </button>
-		//         </div>
-		//         <GoogoleAuth
-		//           othersLink={"/register"}
-		//           othersLinkName={"Register"}
-		//           othersPara={" Don't have an account ?"}
-		//         />
-		//       </form>
-		//     </div>
-		//   </div>
-		// </main>
+		        <div className="action-btn">
+		          <button type="submit">
+		             Login
+		          </button>
+		        </div>
+		        <GoogoleAuth
+		          othersLink={"/register"}
+		          othersLinkName={"Register"}
+		          othersPara={"Don't have an account?"}
+		        />
+		      </form>
+		    </div>
+		  </div>
+		</main>
 	);
 }
 

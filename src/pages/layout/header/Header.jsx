@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, selectUser } from "../../../redux/slices/authSlice";
 import { HiOutlineLogout } from "react-icons/hi";
 import { TbLogin2 } from "react-icons/tb";
+import UserAvatar from "../../../components/profilePic/UserAvatar";
 
 const Header = () => {
 	const [hambergerOn, setHambergerOn] = useState(true);
@@ -17,8 +18,6 @@ const Header = () => {
 	const logout = () => {
 		dispatch(logoutUser());
 	};
-
-	
 
 	return (
 		<header id='header'>
@@ -35,19 +34,12 @@ const Header = () => {
 					hambergerOn ? "linksContainer" : "linksContainer hambergerOn"
 				}
 			>
-				{isAuthenticated ? (
-					<div className='profileContainerMobile'>
-						<Link to='/profile/:uid'>
-							<img src={user?.googleAvatar} alt='profile' />
-						</Link>
-					</div>
-				) : (
-					<div className='profileContainerMobile'>
-						<Link to='/profile/:uid'>
-							<img src={profile} alt='profile' />
-						</Link>
-					</div>
-				)}
+				<div className='profileContainerMobile'>
+					<Link to='/profile/:uid'>
+						{/* find it in global components */}
+						<UserAvatar user={user} />
+					</Link>
+				</div>
 
 				<Link to='/' className='currentLink'>
 					<li>Home</li>
@@ -64,31 +56,25 @@ const Header = () => {
 
 				<div className='authContainer'>
 					{isAuthenticated ? (
-						
-							<button className='btn' onClick={logout}>
-								<HiOutlineLogout/> Logout
-							</button>
-						
+						<button className='btn' onClick={logout}>
+							<HiOutlineLogout /> Logout
+						</button>
 					) : (
 						<Link to='/login'>
-							<button className='btn'> <TbLogin2/>Login</button>
+							<button className='btn'>
+								{" "}
+								<TbLogin2 />
+								Login
+							</button>
 						</Link>
 					)}
-					{isAuthenticated ? (
-						<div className='profileContainer'>
-							<Link to='/profile/:uid'>
-								<img src={user?.googleAvatar} alt='profile' />
-							</Link>
-						</div>
-					) : (
-						<div className='profileContainer'>
-							<Link to='/profile/:uid'>
-								<img src={profile} alt='profile' />
-							</Link>
-						</div>
-					)}
 
-					{/* <Link to="/auth/register">Register</Link> */}
+					<div className='profileContainer'>
+						<Link to='/profile/:uid'>
+							{/* Sani loves component that are reUseable and easy to use 😝 find it in global components */}
+							<UserAvatar user={user} />
+						</Link>
+					</div>
 				</div>
 			</ul>
 			<div className='hamberger' onClick={() => setHambergerOn(!hambergerOn)}>
