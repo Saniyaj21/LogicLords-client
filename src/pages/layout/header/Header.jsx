@@ -10,11 +10,17 @@ import { logoutUser, selectUser } from "../../../redux/slices/authSlice";
 import { HiOutlineLogout } from "react-icons/hi";
 import { TbLogin2 } from "react-icons/tb";
 import UserAvatar from "../../../components/profilePic/UserAvatar";
+import SkeleContainer from "../../../components/skeletons/SkeleContainer";
+import Skeleton from "../../../components/skeletons/Skeleton";
+import CheckAuth from "../../../components/authenticate/CheckAuth";
+import IsLoading from "../../../components/loading/IsLoading";
 
 const Header = () => {
 	const [hambergerOn, setHambergerOn] = useState(true);
 	const dispatch = useDispatch();
-	const { isAuthenticated, user } = useSelector(selectUser);
+	const { isAuthenticated, user, authStatus } = useSelector(selectUser);
+
+	const { serverStatus } = authStatus;
 	const logout = () => {
 		dispatch(logoutUser());
 	};
@@ -55,19 +61,38 @@ const Header = () => {
 				</Link>
 
 				<div className='authContainer'>
-					{isAuthenticated ? (
-						<button className='btn' onClick={logout}>
-							<HiOutlineLogout /> Logout
-						</button>
-					) : (
-						<Link to='/login'>
-							<button className='btn'>
-								{" "}
-								<TbLogin2 />
-								Login
-							</button>
-						</Link>
-					)}
+					<CheckAuth>
+						{{
+							authenticated: (
+								<button className='btn' onClick={logout}>
+									<HiOutlineLogout /> Logout
+								</button>
+							),
+							unauthenticated: (
+								<IsLoading loading={authStatus.serverStatus}>
+									{{
+										onLoading: (
+											<SkeleContainer>
+												<Skeleton
+													width={100}
+													height={40}
+													borderRadious={10}
+												></Skeleton>
+											</SkeleContainer>
+										),
+										notLoading: (
+											<Link to='/login'>
+												<button className='btn'>
+													<TbLogin2 />
+													Login
+												</button>
+											</Link>
+										),
+									}}
+								</IsLoading>
+							),
+						}}
+					</CheckAuth>
 
 					<div className='profileContainer'>
 						<Link to='/profile/:uid'>

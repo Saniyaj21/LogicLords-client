@@ -10,7 +10,8 @@ const initialState = {
     authStatus: {
         otpSend: 'idle',
         otpVerified: 'idle',
-        googleStatus: 'idle'
+        googleStatus: 'idle',
+        serverStatus: true
     }
 };
 
@@ -109,13 +110,15 @@ const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            //  get user detailsF
+            //  get user details
             .addCase(getUser.pending, (state) => {
                 state.status = 'loading';
+                state.authStatus.serverStatus = true;
                 state.error = null;
             })
             .addCase(getUser.fulfilled, (state, action) => {
                 if (action.payload.success === true) {
+                    state.authStatus.serverStatus = false;
                     state.status = 'succeeded';
                     state.user = action.payload.user;
                     state.isAuthenticated = true;
@@ -126,7 +129,8 @@ const userSlice = createSlice({
 
             })
             .addCase(getUser.rejected, (state, action) => {
-                state.status = 'failed';
+                state.authStatus.serverStatus = 'failed';
+                state.status = true;
             })
 
             // register user
