@@ -9,6 +9,11 @@ const Test = () => {
 				<Skeleton height={20} width={20} borderRadious='50%' />
 				<Skeleton height={5} width={200} borderRadious={2} />
 				<Skeleton height={20} width={200} borderRadious={5} />
+				<SkeleContainer flexDirection='column' gap={5} paddingX={120}>
+					<Skeleton borderRadious="50%" height={40} width={40}/>
+					<Skeleton/>
+					<Skeleton/>
+				</SkeleContainer>
 			</SkeleContainer>
 		</div>
 	);
