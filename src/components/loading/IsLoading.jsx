@@ -1,6 +1,6 @@
 
 const IsLoading = ({loading, children}) => {
-	if (loading) {
+	if (loading === 'loading') {
 		return <>{children.onLoading}</>;
 	} else {
 		return <>{children.notLoading}</>;
