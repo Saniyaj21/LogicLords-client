@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
 import Logo from "../../../media/logo1.png";
-import profile from "../../../media/default_profile.png";
 import "./header.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, selectUser } from "../../../redux/slices/authSlice";
@@ -18,9 +17,8 @@ import IsLoading from "../../../components/loading/IsLoading";
 const Header = () => {
 	const [hambergerOn, setHambergerOn] = useState(true);
 	const dispatch = useDispatch();
-	const { isAuthenticated, user, authStatus } = useSelector(selectUser);
+	const { user, authStatus } = useSelector(selectUser);
 
-	const { serverStatus } = authStatus;
 	const logout = () => {
 		dispatch(logoutUser());
 	};
@@ -96,7 +94,6 @@ const Header = () => {
 
 					<div className='profileContainer'>
 						<Link to='/profile/:uid'>
-							{/* Sani loves component that are reUseable and easy to use 😝 find it in global components */}
 							<UserAvatar user={user} />
 						</Link>
 					</div>

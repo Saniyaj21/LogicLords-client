@@ -11,7 +11,7 @@ const initialState = {
         otpSend: 'idle',
         otpVerified: 'idle',
         googleStatus: 'idle',
-        serverStatus: true
+        serverStatus: 'idle'
     }
 };
 
@@ -113,25 +113,25 @@ const userSlice = createSlice({
             //  get user details
             .addCase(getUser.pending, (state) => {
                 state.status = 'loading';
-                state.authStatus.serverStatus = true;
+                state.authStatus.serverStatus = "loading";
                 state.error = null;
             })
             .addCase(getUser.fulfilled, (state, action) => {
                 if (action.payload.success === true) {
-                    state.authStatus.serverStatus = false;
+                    state.authStatus.serverStatus = 'succeeded';
                     state.status = 'succeeded';
                     state.user = action.payload.user;
                     state.isAuthenticated = true;
                 }
                 else {
-                    state.authStatus.serverStatus = false;
+                    state.authStatus.serverStatus = 'failed';
                     state.status = 'failed';
                 }
 
             })
             .addCase(getUser.rejected, (state, action) => {
                 state.authStatus.serverStatus = 'failed';
-                state.status = false;
+                state.status = "failed";
             })
 
             // register user
