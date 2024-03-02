@@ -124,6 +124,7 @@ const userSlice = createSlice({
                     state.isAuthenticated = true;
                 }
                 else {
+                    state.authStatus.serverStatus = false;
                     state.status = 'failed';
                 }
 
