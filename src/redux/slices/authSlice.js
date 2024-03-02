@@ -124,13 +124,14 @@ const userSlice = createSlice({
                     state.isAuthenticated = true;
                 }
                 else {
+                    state.authStatus.serverStatus = false;
                     state.status = 'failed';
                 }
 
             })
             .addCase(getUser.rejected, (state, action) => {
                 state.authStatus.serverStatus = 'failed';
-                state.status = true;
+                state.status = false;
             })
 
             // register user
