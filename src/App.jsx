@@ -19,6 +19,7 @@ import { getUser, selectUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Challenge from "./pages/challenge/Challenge";
 import Test from "./Test";
+import RecoverPassword from './pages/auth/components/forgotPassword/RecoverPassword'
 
 function App() {
 	const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
 
 				<Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} />
+				<Route path='/password/recover' element={<RecoverPassword />} />
 
 				{/* <Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} /> */}
