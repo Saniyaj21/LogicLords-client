@@ -84,6 +84,13 @@ function Login() {
 		             Login
 		          </button>
 		        </div>
+				<p className="nunito-6 forget-password-p">
+					Forget password?
+					<Link to={'/password/recover'} >
+						Recover password.
+					</Link>
+				</p>
+				
 		        <GoogoleAuth
 		          othersLink={"/register"}
 		          othersLinkName={"Register"}

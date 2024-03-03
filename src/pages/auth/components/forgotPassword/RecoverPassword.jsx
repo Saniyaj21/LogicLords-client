@@ -15,6 +15,7 @@ import { clearError, selectUser } from "../../../../redux/slices/authSlice";
 import { SiMinutemailer } from "react-icons/si";
 import { IoMdInformationCircle } from "react-icons/io";
 
+
 const RecoverPassword = () => {
 	const { isAuthenticated, isOtpSent, isEmailVerified, mail } =
 		useSelector(selectUser);
