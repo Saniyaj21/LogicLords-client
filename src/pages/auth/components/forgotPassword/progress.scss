@@ -1,0 +1,44 @@
+.progress-main {
+	display: flex;
+	margin: 50px 0px;
+	justify-content: center;
+	align-items: center;
+	min-width: 300px;
+	width: 900px;
+	padding: 0px 5px;
+	.circle {
+		> div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+			font-size: 25px;
+			height: 50px;
+			width: 50px;
+			background-color: var(--green);
+			color: var(--white);
+			border-radius: 50%;
+			transition: all 0.5s ease-in-out;
+		}
+	}
+	.active-circle {
+		> div {
+			background-color: var(--warningPrimary);
+			box-shadow: 0px 0px 15px rgb(59, 201, 211);
+			border: 1px solid aqua;
+			color: white;
+		}
+	}
+	.line {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+		width: 100px;
+		height: 5px;
+		background-color: var(--green);
+		transition: all 0.5s ease-in-out;
+	}
+	.active-line {
+		background-color: var(--warningPrimary);
+	}
+}

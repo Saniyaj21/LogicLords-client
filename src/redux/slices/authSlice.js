@@ -12,6 +12,11 @@ const initialState = {
         otpVerified: 'idle',
         googleStatus: 'idle',
         serverStatus: 'idle'
+    },
+    mail: {
+        mailStatus: 'idle',
+        otpStatus: 'idle',
+        passwordStatus: 'idle',
     }
 };
 
@@ -100,13 +105,24 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+        // clearError: (state, action) => {
+
+        //     state.error = null,
+        //         state.authStatus.otpSend = 'idle',
+        //         state.authStatus.otpVerified = 'idle'
+
+        // },
         clearError: (state, action) => {
 
             state.error = null,
-                state.authStatus.otpSend = 'idle',
-                state.authStatus.otpVerified = 'idle'
-
-        },
+              state.isOtpSent = false;
+            state.isEmailVerified = false;
+            state.mail.mailStatus = 'idle';
+            state.mail.otpStatus = 'idle';
+            state.mail.passwordStatus = 'idle';
+      
+      
+          },
     },
     extraReducers: (builder) => {
         builder
