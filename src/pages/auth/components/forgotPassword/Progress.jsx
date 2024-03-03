@@ -1,7 +1,8 @@
 import "./progress.scss";
-import { HiOutlineMail } from "react-icons/hi";
-import { FaCircleArrowRight } from "react-icons/fa6";
+
 import { FaLock } from "react-icons/fa6";
+import { MdVerified } from "react-icons/md";
+import { MdAttachEmail } from "react-icons/md";
 const Progress = ({step}) => {
 	return (
 		<div className='progress-main'>
@@ -9,7 +10,7 @@ const Progress = ({step}) => {
 			<div className={`circle ${step >= 1? "active-circle":""}`}>
 				<div>
 					{/* <i className='fa-solid fa-envelope'></i> */}
-					<HiOutlineMail />
+					<MdAttachEmail />
 				</div>
 			</div>
 
@@ -17,7 +18,7 @@ const Progress = ({step}) => {
 
 			<div className={`circle ${step >= 2? "active-circle":""}`}>
 				<div>
-				<FaCircleArrowRight/>
+				<MdVerified/>
 				</div>
 			</div>
 			<div className={`line ${step >= 2? "active-line":""}`}></div>

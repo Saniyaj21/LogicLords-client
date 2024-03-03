@@ -1,6 +1,14 @@
 .input_box{
 	width: 300px ; 
 }
+.forget-password-p{
+	margin: 10px;
+	display: flex;
+	gap: 5px;
+	>a{
+		text-decoration: none;
+	}
+}
 
 
 @media only screen and (max-width: 800px){
