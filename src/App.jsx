@@ -17,8 +17,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, selectUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
-import GoogoleAuth from "./pages/auth/components/GoogleAuth";
 import Challenge from "./pages/challenge/Challenge";
+import Test from "./Test";
+import RecoverPassword from "./pages/auth/components/forgotPassword/RecoverPassword";
 
 function App() {
     const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
 
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/password/recover" element={<RecoverPassword />} />
 
                 {/* <Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} /> */}
@@ -49,6 +51,7 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
                 <Route path="/challenges" element={<Challenge />} />
+                <Route path="/test" element={<Test />} />
 
                 <Route path="/*" element={<ErrorPage />} />
             </Routes>

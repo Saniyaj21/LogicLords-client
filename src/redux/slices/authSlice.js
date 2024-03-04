@@ -10,7 +10,13 @@ const initialState = {
     authStatus: {
         otpSend: 'idle',
         otpVerified: 'idle',
-        googleStatus: 'idle'
+        googleStatus: 'idle',
+        serverStatus: 'idle'
+    },
+    mail: {
+        mailStatus: 'idle',
+        otpStatus: 'idle',
+        passwordStatus: 'idle',
     }
 };
 
@@ -99,34 +105,49 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+        // clearError: (state, action) => {
+
+        //     state.error = null,
+        //         state.authStatus.otpSend = 'idle',
+        //         state.authStatus.otpVerified = 'idle'
+
+        // },
         clearError: (state, action) => {
 
             state.error = null,
-                state.authStatus.otpSend = 'idle',
-                state.authStatus.otpVerified = 'idle'
-
-        },
+              state.isOtpSent = false;
+            state.isEmailVerified = false;
+            state.mail.mailStatus = 'idle';
+            state.mail.otpStatus = 'idle';
+            state.mail.passwordStatus = 'idle';
+      
+      
+          },
     },
     extraReducers: (builder) => {
         builder
-            //  get user detailsF
+            //  get user details
             .addCase(getUser.pending, (state) => {
                 state.status = 'loading';
+                state.authStatus.serverStatus = "loading";
                 state.error = null;
             })
             .addCase(getUser.fulfilled, (state, action) => {
                 if (action.payload.success === true) {
+                    state.authStatus.serverStatus = 'succeeded';
                     state.status = 'succeeded';
                     state.user = action.payload.user;
                     state.isAuthenticated = true;
                 }
                 else {
+                    state.authStatus.serverStatus = 'failed';
                     state.status = 'failed';
                 }
 
             })
             .addCase(getUser.rejected, (state, action) => {
-                state.status = 'failed';
+                state.authStatus.serverStatus = 'failed';
+                state.status = "failed";
             })
 
             // register user

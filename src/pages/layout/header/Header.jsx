@@ -3,18 +3,22 @@ import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
 import Logo from "../../../media/logo1.png";
-import profile from "../../../media/default_profile.png";
 import "./header.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, selectUser } from "../../../redux/slices/authSlice";
 import { HiOutlineLogout } from "react-icons/hi";
 import { TbLogin2 } from "react-icons/tb";
 import UserAvatar from "../../../components/profilePic/UserAvatar";
+import SkeleContainer from "../../../components/skeletons/SkeleContainer";
+import Skeleton from "../../../components/skeletons/Skeleton";
+import CheckAuth from "../../../components/authenticate/CheckAuth";
+import IsLoading from "../../../components/loading/IsLoading";
 
 const Header = () => {
 	const [hambergerOn, setHambergerOn] = useState(true);
 	const dispatch = useDispatch();
-	const { isAuthenticated, user } = useSelector(selectUser);
+	const { user, authStatus } = useSelector(selectUser);
+
 	const logout = () => {
 		dispatch(logoutUser());
 	};
@@ -55,23 +59,41 @@ const Header = () => {
 				</Link>
 
 				<div className='authContainer'>
-					{isAuthenticated ? (
-						<button className='btn' onClick={logout}>
-							<HiOutlineLogout /> Logout
-						</button>
-					) : (
-						<Link to='/login'>
-							<button className='btn'>
-								{" "}
-								<TbLogin2 />
-								Login
-							</button>
-						</Link>
-					)}
+					<CheckAuth>
+						{{
+							authenticated: (
+								<button className='btn' onClick={logout}>
+									<HiOutlineLogout /> Logout
+								</button>
+							),
+							unauthenticated: (
+								<IsLoading loading={authStatus.serverStatus}>
+									{{
+										onLoading: (
+											<SkeleContainer>
+												<Skeleton
+													width={100}
+													height={40}
+													borderRadious={10}
+												></Skeleton>
+											</SkeleContainer>
+										),
+										notLoading: (
+											<Link to='/login'>
+												<button className='btn'>
+													<TbLogin2 />
+													Login
+												</button>
+											</Link>
+										),
+									}}
+								</IsLoading>
+							),
+						}}
+					</CheckAuth>
 
 					<div className='profileContainer'>
 						<Link to='/profile/:uid'>
-							{/* Sani loves component that are reUseable and easy to use 😝 find it in global components */}
 							<UserAvatar user={user} />
 						</Link>
 					</div>
