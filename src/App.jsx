@@ -41,12 +41,12 @@ function App() {
 
                 <Route path="/" element={<Home />} exact />
 
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/password/recover" element={<RecoverPassword />} />
-                <Route path="/courses" element={<Courses />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/register' element={<Register />} />
+				<Route path='/password/recover' element={<RecoverPassword />} />
+				<Route path='/courses' element={<Courses />} />
 
-                {/* <Route path='/projects' element={<Projects />} />
+				{/* <Route path='/projects' element={<Projects />} />
 				<Route path='/leaderboard' element={<LeaderBoard />} />
 				<Route path='/challenges' element={<Challenge />} />
 				<Route path='/test' element={<Test />} /> */}

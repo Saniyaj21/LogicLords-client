@@ -7,7 +7,7 @@ import { IoMdSearch } from "react-icons/io";
 import { PiStarFourFill } from "react-icons/pi";
 import CourseComponent from "./components/CourseComponent";
 
-import { cource } from "./json/course";
+import { course } from "./json/course";
 
 function Courses() {
   return (
@@ -24,7 +24,7 @@ function Courses() {
             </Link>
           </div>
         </div>
-        <div className="search-container">
+        {/* <div className="search-container">
           <input
             type="text"
             placeholder="Search your course here..."
@@ -33,7 +33,7 @@ function Courses() {
           <button>
             <IoMdSearch />
           </button>
-        </div>
+        </div> */}
 
         {/* <div className="course-container">
           <h3>Continue Watching </h3>
@@ -89,7 +89,7 @@ function Courses() {
           </p>
           <div className="course-list">
             {
-              cource && cource.map((ele, index)=>{
+              course && course.map((ele, index)=>{
                 return(
                   <CourseComponent item={ele} index={index}/>
                 )
