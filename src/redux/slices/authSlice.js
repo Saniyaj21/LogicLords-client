@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { base_url } from '../../main';
-import axios from 'axios'
+import api from '../../utils/axiosInterceptor.js'
 
 const initialState = {
+    token: localStorage.getItem('token') || null,
     user: {},
     isAuthenticated: false,
     status: 'idle',
@@ -24,7 +25,7 @@ const initialState = {
 
 // get user details - profile
 export const getUser = createAsyncThunk('user/getUser', async () => {
-    const response = await axios.get(`${base_url}/api/user/profile`, {
+    const response = await api.get(`${base_url}/api/user/profile`, {
         headers: {
             "Content-Type": "application/json",
         },
@@ -37,7 +38,7 @@ export const getUser = createAsyncThunk('user/getUser', async () => {
 // register user
 export const registerUser = createAsyncThunk('user/registerUser', async ({ name, email, password }) => {
 
-    const response = await axios.post(`${base_url}/api/user/register`, {
+    const response = await api.post(`${base_url}/api/user/register`, {
         name, email, password
     }, {
         withCredentials: true,
@@ -48,7 +49,7 @@ export const registerUser = createAsyncThunk('user/registerUser', async ({ name,
 
 // // register user verify email
 // export const verifyEmail = createAsyncThunk('user/verifyEmail', async ({ otp, email }) => {
-//     const response = await axios.post(`${base_url}/api/user/emailverify`, {
+//     const response = await api.post(`${base_url}/api/user/emailverify`, {
 //         otp, email
 //     }, {
 //         withCredentials: true,
@@ -59,7 +60,7 @@ export const registerUser = createAsyncThunk('user/registerUser', async ({ name,
 // googleSignUp
 export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name, email, avatar }) => {
 
-    const response = await axios.post(`${base_url}/api/user/signup/google`, {
+    const response = await api.post(`${base_url}/api/user/signup/google`, {
         name, email, avatar
     }, {
         withCredentials: true,
@@ -70,7 +71,7 @@ export const googleSignUp = createAsyncThunk('user/googleSignUp', async ({ name,
 // login user
 export const loginUser = createAsyncThunk('user/loginUser', async ({ email, password }) => {
 
-    const response = await axios.post(`${base_url}/api/user/login`,
+    const response = await api.post(`${base_url}/api/user/login`,
         {
             email,
             password
@@ -89,13 +90,14 @@ export const loginUser = createAsyncThunk('user/loginUser', async ({ email, pass
 // logout user
 export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
 
-    const response = await axios.get(`${base_url}/api/user/logout`,
+    const response = await api.get(`${base_url}/api/user/logout`,
         {
             headers: {
                 "Content-Type": "application/json",
             },
             withCredentials: true,
         });
+        console.log(response);
 
     return response.data;
 });
@@ -105,13 +107,6 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        // clearError: (state, action) => {
-
-        //     state.error = null,
-        //         state.authStatus.otpSend = 'idle',
-        //         state.authStatus.otpVerified = 'idle'
-
-        // },
         clearError: (state, action) => {
 
             state.error = null,
@@ -159,8 +154,10 @@ const userSlice = createSlice({
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.status = "succeeded";
                 state.authStatus.otpSend = "succeeded"
-                state.user = action.payload.user;
                 state.isAuthenticated = true
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+                localStorage.setItem('token', action.payload.token);
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.status = "failed";
@@ -198,6 +195,8 @@ const userSlice = createSlice({
                 state.authStatus.googleStatus = "succeeded"
                 state.user = action.payload.user
                 state.isAuthenticated = true
+                state.token = action.payload.token;
+                localStorage.setItem('token', action.payload.token);
             })
             .addCase(googleSignUp.rejected, (state, action) => {
                 state.status = "failed";
@@ -215,6 +214,8 @@ const userSlice = createSlice({
                 state.status = 'succeeded';
                 state.user = action.payload.user;
                 state.isAuthenticated = true;
+                state.token = action.payload.token;
+                localStorage.setItem('token', action.payload.token);
 
             })
             .addCase(loginUser.rejected, (state, action) => {
@@ -233,6 +234,8 @@ const userSlice = createSlice({
                 state.status = 'succeeded';
                 state.user = null;
                 state.isAuthenticated = false;
+                localStorage.setItem('token', null);
+                state.token = null;
 
             })
             .addCase(logoutUser.rejected, (state, action) => {

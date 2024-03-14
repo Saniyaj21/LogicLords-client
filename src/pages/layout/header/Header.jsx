@@ -51,12 +51,12 @@ const Header = () => {
 				<Link to='/courses'>
 					<li>Courses</li>
 				</Link>
-				<Link to='/projects'>
+				{/* <Link to='/projects'>
 					<li>Projects</li>
 				</Link>
 				<Link to='/leaderboard'>
 					<li> Leader Board</li>
-				</Link>
+				</Link> */}
 
 				<div className='authContainer'>
 					<CheckAuth>
