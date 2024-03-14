@@ -24,7 +24,7 @@ function Courses() {
             </Link>
           </div>
         </div>
-        <div className="search-container">
+        {/* <div className="search-container">
           <input
             type="text"
             placeholder="Search your course here..."
@@ -33,7 +33,7 @@ function Courses() {
           <button>
             <IoMdSearch />
           </button>
-        </div>
+        </div> */}
 
         {/* <div className="course-container">
           <h3>Continue Watching </h3>
