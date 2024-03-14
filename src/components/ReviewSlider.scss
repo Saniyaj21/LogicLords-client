@@ -1,0 +1,19 @@
+// ReviewSlider.scss
+.review-slider {
+    width: 100%;
+    max-width: 800px; // adjust maximum width as needed
+    margin: 0 auto;
+}
+
+.review-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px; // adjust slide height as needed
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

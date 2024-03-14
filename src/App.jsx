@@ -19,42 +19,45 @@ import { getUser, selectUser } from "./redux/slices/authSlice";
 import { useEffect } from "react";
 import Challenge from "./pages/challenge/Challenge";
 import Test from "./Test";
-import RecoverPassword from './pages/auth/components/forgotPassword/RecoverPassword'
+import RecoverPassword from "./pages/auth/components/forgotPassword/RecoverPassword";
+import Admin from "./pages/admin";
 
 function App() {
-	const dispatch = useDispatch();
-	const { isAuthenticated, user } = useSelector(selectUser);
-	useEffect(() => {
-		dispatch(getUser());
-	}, [dispatch, isAuthenticated]);
+    const dispatch = useDispatch();
+    const { isAuthenticated, user } = useSelector(selectUser);
+    useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch, isAuthenticated]);
 
-	return (
-		<Router>
-			<Header />
-			<ToastContainer />
-			<Routes>
-				{/* Restricted routes */}
-				<Route element={<ProtectedRoute />}>
-					<Route path='/profile' element={<Profile />} />
-				</Route>
+    return (
+        <Router>
+            <Header />
+            <ToastContainer />
+            <Routes>
+                {/* Restricted routes */}
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/profile" element={<Profile />} />
+                </Route>
 
-				<Route path='/' element={<Home />} exact />
+                <Route path="/" element={<Home />} exact />
 
-				<Route path='/login' element={<Login />} />
-				<Route path='/register' element={<Register />} />
-				<Route path='/password/recover' element={<RecoverPassword />} />
-				<Route path='/courses' element={<Courses />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/password/recover" element={<RecoverPassword />} />
+                <Route path="/courses" element={<Courses />} />
 
-				{/* <Route path='/projects' element={<Projects />} />
+                {/* <Route path='/projects' element={<Projects />} />
 				<Route path='/leaderboard' element={<LeaderBoard />} />
 				<Route path='/challenges' element={<Challenge />} />
 				<Route path='/test' element={<Test />} /> */}
 
-				<Route path='/*' element={<ErrorPage />} />
-			</Routes>
-			<Footer />
-		</Router>
-	);
+                <Route path="/*" element={<ErrorPage />} />
+
+                <Route path="/admin" element={<Admin />} />
+            </Routes>
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;
