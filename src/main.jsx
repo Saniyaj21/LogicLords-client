@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 // in production code push this
 
- export const base_url = 'https://logiclords-server.onrender.com';
+ export const base_url = 'https://logiclords-server.vercel.app';
 
 
 
