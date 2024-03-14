@@ -7,6 +7,8 @@ import { IoMdSearch } from "react-icons/io";
 import { PiStarFourFill } from "react-icons/pi";
 import CourseComponent from "./components/CourseComponent";
 
+import { cource } from "./json/course";
+
 function Courses() {
   return (
     <>
@@ -33,7 +35,7 @@ function Courses() {
           </button>
         </div>
 
-        <div className="course-container">
+        {/* <div className="course-container">
           <h3>Continue Watching </h3>
           <div className="course-list">
             <CourseComponent
@@ -79,54 +81,20 @@ function Courses() {
             />
             
           </div>
-        </div>
+        </div> */}
 
         <div className="course-container">
           <p>
             <PiStarFourFill /> <b>Courses</b>{" "}
           </p>
           <div className="course-list">
-          <CourseComponent
-              courseType={"FontEnd"}
-              courseDescription={
-                "Beginner’s Guide to becoming a professional frontend developer"
-              }
-              ratting={0}
-              totalRattingAmmount={0}
-              instractorName={"Sombhu Das"}
-              instractorRole={"Web Developer"}
-            />
-          <CourseComponent
-              courseType={"FontEnd"}
-              courseDescription={
-                "Beginner’s Guide to becoming a professional frontend developer"
-              }
-              ratting={"4.6"}
-              totalRattingAmmount={"300"}
-              instractorName={"Sombhu Das"}
-              instractorRole={"Web Developer"}
-              isFree={false}
-            />
-          <CourseComponent
-              courseType={"FontEnd"}
-              courseDescription={
-                "Beginner’s Guide to becoming a professional frontend developer"
-              }
-              ratting={"4.6"}
-              totalRattingAmmount={"300"}
-              instractorName={"Sombhu Das"}
-              instractorRole={"Web Developer"}
-            />
-          <CourseComponent
-              courseType={"FontEnd"}
-              courseDescription={
-                "Beginner’s Guide to becoming a professional frontend developer"
-              }
-              ratting={"4.6"}
-              totalRattingAmmount={"300"}
-              instractorName={"Sombhu Das"}
-              instractorRole={"Web Developer"}
-            />
+            {
+              cource && cource.map((ele, index)=>{
+                return(
+                  <CourseComponent item={ele} index={index}/>
+                )
+              })
+            }
 
           </div>
         </div>
