@@ -9,37 +9,32 @@ import { Rate } from "antd";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function CourseComponent({
-  thumbnail,
-  courseType,
-  courseDescription,
-  instractorDp,
-  instractorName,
-  instractorRole,
-  ratting ,
-  totalRattingAmmount ,
-  isHistory = false,
-  isFree=true,
-  progress
-}) {
+function CourseComponent({item , index}) {
 
+  console.log(item , index);
   return (
-    <div className="course-cart">
+    <div key={index} className="course-cart">
       <div className="video-container">
         <img src={videoThumbnail} alt="" />
       </div>
 
       <div className="course-info">
-        <span className="course-type">{courseType}</span>
+        <span className="course-type">{item.courseTag}</span>
         <p className="course-description nunito-6">
-         {courseDescription}
+         {item.courseTitle}
         </p>
       </div>
 
-      {isHistory ? <div className="progress-container" >
-        <div className="progress" style={{width: progress}}></div>
-      </div> : ""}
+      {/* prograss bar section */}
 
+      {/* {isHistory ? <div className="cource-progress-container" >
+        <div className="progress" style={{width: progress}}></div>
+      </div> : ""} */}
+
+      
+      {/* instractor information section for future implemantation */}
+
+       {/* 
       <div className="instractor-info">
         <div className="dp-container">
           <img src={dp} alt="" />
@@ -48,9 +43,12 @@ function CourseComponent({
           <p className="name">{instractorName}</p>
           <p className="role">{instractorRole}</p>
         </div>
-      </div>
+      </div> */}
 
-      {isHistory ? (
+
+      {/* retting section for future implemantation */}
+
+      {/* {isHistory ? (
         ""
       ) : (
         <div className="course-other-info" id="course-other-info">
@@ -71,14 +69,17 @@ function CourseComponent({
           
           
         </div>
-      )}
+      )} */}
+
+<p className="nunito-6 ammount-of-student">({item.totalEnrollment})</p>
+
 
       <div className="enroal-container">
         <Link
         // to={"/playlist/id"}
         >
           <button className="btn">
-            {isHistory ? "Continue" : "Enrole Now"} <BsArrowRight />
+            Enrole Now <BsArrowRight />
           </button>
         </Link>
       </div>
