@@ -20,6 +20,7 @@ import { useEffect } from "react";
 import Challenge from "./pages/challenge/Challenge";
 import Test from "./Test";
 import RecoverPassword from "./pages/auth/components/forgotPassword/RecoverPassword";
+import Admin from "./pages/admin";
 
 function App() {
     const dispatch = useDispatch();
@@ -43,17 +44,16 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/password/recover" element={<RecoverPassword />} />
-
-                {/* <Route path='/login' element={<Login />} />
-				<Route path='/register' element={<Register />} /> */}
-
                 <Route path="/courses" element={<Courses />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/leaderboard" element={<LeaderBoard />} />
-                <Route path="/challenges" element={<Challenge />} />
-                <Route path="/test" element={<Test />} />
+
+                {/* <Route path='/projects' element={<Projects />} />
+				<Route path='/leaderboard' element={<LeaderBoard />} />
+				<Route path='/challenges' element={<Challenge />} />
+				<Route path='/test' element={<Test />} /> */}
 
                 <Route path="/*" element={<ErrorPage />} />
+
+                <Route path="/admin" element={<Admin />} />
             </Routes>
             <Footer />
         </Router>
