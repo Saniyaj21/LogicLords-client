@@ -21,6 +21,8 @@ import Challenge from "./pages/challenge/Challenge";
 import Test from "./Test";
 import RecoverPassword from "./pages/auth/components/forgotPassword/RecoverPassword";
 import Admin from "./pages/admin";
+import Video from "./pages/video/component/Videos";
+import AllVideo from "./pages/video/AllVideo";
 
 function App() {
     const dispatch = useDispatch();
@@ -45,6 +47,8 @@ function App() {
 				<Route path='/register' element={<Register />} />
 				<Route path='/password/recover' element={<RecoverPassword />} />
 				<Route path='/courses' element={<Courses />} />
+				<Route path='/courses/video' element={<AllVideo />} />
+
 
 				{/* <Route path='/projects' element={<Projects />} />
 				<Route path='/leaderboard' element={<LeaderBoard />} />
