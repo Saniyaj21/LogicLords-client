@@ -44,7 +44,8 @@ function App() {
 				<Route path='/register' element={<Register />} />
 				<Route path='/password/recover' element={<RecoverPassword />} />
 				<Route path='/courses' element={<Courses />} />
-
+				
+                
 				{/* <Route path='/projects' element={<Projects />} />
 				<Route path='/leaderboard' element={<LeaderBoard />} />
 				<Route path='/challenges' element={<Challenge />} />

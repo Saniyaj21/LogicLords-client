@@ -7,7 +7,7 @@ import { IoMdSearch } from "react-icons/io";
 import { PiStarFourFill } from "react-icons/pi";
 import CourseComponent from "./components/CourseComponent";
 
-import { cource } from "./json/course";
+import { course } from "./json/course";
 
 function Courses() {
   return (
@@ -89,7 +89,7 @@ function Courses() {
           </p>
           <div className="course-list">
             {
-              cource && cource.map((ele, index)=>{
+              course && course.map((ele, index)=>{
                 return(
                   <CourseComponent item={ele} index={index}/>
                 )

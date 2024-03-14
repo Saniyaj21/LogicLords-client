@@ -1,4 +1,4 @@
-export const cource = [
+export const course = [
     {
       "thumbnail": "path/to/thumbnail1.jpg",
       "courseTag": "Online Course",
