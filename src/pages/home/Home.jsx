@@ -19,10 +19,6 @@ const Home = () => {
             <FeaturesInclude />
             <UsersReview />
             <DownloadApp />
-
-         
-
-
 		</div>
 	);
 
