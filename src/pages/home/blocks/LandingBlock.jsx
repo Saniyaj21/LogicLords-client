@@ -22,6 +22,7 @@ const LandingBlock = () => {
                         <input
                             type="text"
                             placeholder="Search for your desire courses..."
+                            className="text-[var(--blue)] text-lg"
                         />
                         <button className="searchBtn">
                             <FaSearch className="icon" />
