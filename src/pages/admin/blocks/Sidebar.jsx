@@ -7,7 +7,6 @@ import { RiHomeFill, RiUserAddFill } from "react-icons/ri";
 
 const Sidebar = () => {
     const location = useLocation().pathname;
-    console.log(location);
     const [activeLocation, setActiveLocation] = useState(location);
 
     return (
