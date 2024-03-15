@@ -8,15 +8,15 @@ const LandingBlock = () => {
             <div className="mainBlock">
                 <div className="leftBlock">
                     <div className="logicText">
-                        <h2 className="logicCode">
+                        <h2 className="logicCode font-bold">
                             <span className="while">while</span>&#40;
                             <span className="true">true</span>&#41;&#123;
                         </h2>
-                        <div className="innerLogic">
+                        <div className="innerLogic font-bold">
                             <h2 className="logicCode">Learn;</h2>
                             <h2 className="logicCode">Build;</h2>
                         </div>
-                        <h2 className="logicCode">&#125;</h2>
+                        <h2 className="logicCode font-bold">&#125;</h2>
                     </div>
                     <div className="searchBar">
                         <input
