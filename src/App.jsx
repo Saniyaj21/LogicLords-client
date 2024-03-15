@@ -21,7 +21,6 @@ import Challenge from "./pages/challenge/Challenge";
 import Test from "./Test";
 import RecoverPassword from "./pages/auth/components/forgotPassword/RecoverPassword";
 
-import Admin from "./pages/admin";
 import Video from "./pages/video/component/Videos";
 import AllVideo from "./pages/video/AllVideo";
 
